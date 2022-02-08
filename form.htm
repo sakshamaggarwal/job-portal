@@ -3,29 +3,15 @@
 <html lang="en">
 
 <body>
-  
-
-
     <div id='application' class="">
-      <a name='app'></a>
-      <form id="application_form" enctype="multipart/form-data" action="https://boards.greenhouse.io/tusimplerelocationjobs/jobs/5456662002" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
-        <input type="hidden" name="fingerprint" id="fingerprint" value="4a975550172b17e57a72f0a0e33e58154e280dea" />
-        <input type="hidden" name="render_date" id="render_date" value="2022-02-08 05:34:18 +0000" />
-
-
-
         <div id='main_fields'>
-            <h2 class='heading'>Details</h2>
-
+            <h2 class='heading'>User Details</h2>
             <div class='required-fields'>
               <span class='asterisk'>*</span> Required
             </div>
-
           <div class='clear'></div>
-
             <div id="apply_with_buttons">
                 
-
   <div name="widget-holder">
   <script type="text/javascript" src="https://www.linkedin.com/mjobs/awli/awliWidget"></script>
   <script type="IN/AwliWidget" data-company-job-code="5456662002" data-allow-sign-in="true" data-callback-method="JBEN.LinkedinProfile.receive" data-mode="BUTTON_DATA" data-api-key="86s6f6r80xz7aj" data-integration-context="urn:li:organization:10693191">
@@ -55,19 +41,35 @@
 
 <div class='field'>
   <label for='first_name'>First Name <span class='asterisk' aria-hidden='true'>*</span></label>
-  <input type='text' id='first_name' name='job_application[first_name]' aria-required="true" maxlength="255" autocomplete="given-name"/>
+  <br><input type='text' id='first_name' name='job_application[first_name]' aria-required="true" maxlength="255" autocomplete="given-name"/>
 </div>
 <div class='field'>
   <label for='last_name'>Last Name <span class='asterisk' aria-hidden='true'>*</span></label>
-  <input type='text' id='last_name' name='job_application[last_name]' aria-required="true" maxlength="255" autocomplete="family-name" />
+  <br><input type='text' id='last_name' name='job_application[last_name]' aria-required="true" maxlength="255" autocomplete="family-name" />
 </div>
 <div class='field'>
   <label for='email'>Email <span class='asterisk' aria-hidden='true'>*</span></label>
-  <input type='text' id='email' name='job_application[email]' aria-required="true" maxlength="255" autocomplete="email" />
+	<br><input type='text' id='email' name='job_application[email]' aria-required="true" maxlength="255" autocomplete="email" />
 </div>
+<div>
+<label for="pwd">Password:</label>
+  <br><input type="password" id="pwd" name="pwd" minlength="8">
+ </div>
+ <div>
+<label for="pwd">Re-enter Password:</label>
+  <br><input type="password" id="pwd2" name="pwd2" minlength="8">
+ </div>
 <div class='field'>
   <label for='phone'>Phone <span class='asterisk' aria-hidden='true'>*</span></label>
-  <input type='text' id='phone' name='job_application[phone]' maxlength="255" autocomplete="tel" required='required' aria-required="true"/>
+  <br><input type='text' id='phone' name='job_application[phone]' maxlength="255" autocomplete="tel" required='required' aria-required="true"/>
+</div>
+<div class='field'>
+  <label for='Gender'>Gender <span class='asterisk' aria-hidden='true'>*</span></label>
+  <br><input type='text' id='Gender' name='job_application[Gender]' aria-required="true" maxlength="25" autocomplete="Gender" />
+</div>
+<div class='field'>
+  <label for='SExual Orientation'>SExual Orientation <span class='asterisk' aria-hidden='true'>*</span></label>
+  <br><input type='text' id='SExual Orientation' name='job_application[SExual Orientation]' aria-required="true" maxlength="255" autocomplete="family-name" />
 </div>
 
 
@@ -77,7 +79,7 @@
                   <span class='asterisk' aria-hidden='true'>*</span>
               </label>
 
-              <input type="text" name="job_application[location]" id="job_application_location" class="job-application-location" aria-required="true" role="presentation" maxlength="255" data-provider="Pelias" data-type="locality,localadmin,borough" />
+              <br><input type="text" name="job_application[location]" id="job_application_location" class="job-application-location" aria-required="true" role="presentation" maxlength="255" data-provider="Pelias" data-type="locality,localadmin,borough" />
             </div>
 
           
@@ -126,23 +128,12 @@
 
 
 
-            <span id="education_instructions">
-              When autocomplete results are available use up and down arrows to review
-            </span>
-
-            <div id="education_section"></div>
-
-<a id="add_education" href="#">
-  + Add Another <span class="offscreen">Education</span>
-</a>
-
-        </div>
-
+           
             <hr/>
 
           <div id='custom_fields'>
             <div class="field">
-  <label>What is your primary coding language?<span class="asterisk" aria-hidden="true">&nbsp;*</span>
+  <label>Skills<span class="asterisk" aria-hidden="true">&nbsp;*</span>
     <br/>
     
     <input type="hidden" name="job_application[answers_attributes][0][question_id]" id="job_application_answers_attributes_0_question_id" value="13779957002" />
@@ -150,8 +141,14 @@
 
 <textarea name="job_application[answers_attributes][0][text_value]" id="job_application_answers_attributes_0_text_value" aria-required="true" autocomplete="custom-question-what-is-your-primary-coding-language">
 </textarea>
-
-
+<div class='field'>
+  <label for='work'>Work Authorization Status ( Current Visa status) <span class='asterisk' aria-hidden='true'>*</span></label>
+	<br><input type='text' id='work' name='job_application[work]' aria-required="true" maxlength="255" autocomplete="email" />
+</div>
+<div class='field'>
+  <label for='graduation'>Expected Graduation Date <span class='asterisk' aria-hidden='true'>*</span></label>
+	<br><input type='text' id='graduation' name='job_application[graduation]' aria-required="true" maxlength="255" autocomplete="graduation" />
+</div>
 </label></div>
 <div class="field">
   <label>Are you seeking full-time employment or an Internship? <span class="asterisk" aria-hidden="true">&nbsp;*</span>
@@ -188,9 +185,7 @@
   <h3 id="eeoc_title">Voluntary Self-Identification</h3>
 
   <p> For government reporting purposes, we ask candidates to respond to the below self-identification survey. Completion of the form is entirely <strong>voluntary</strong>. Whatever your decision, it will not be considered in the hiring process or thereafter. Any information that you do provide will be recorded and maintained in a confidential file. </p>
-<p> As set forth in TuSimple, Inc. ’s Equal Employment Opportunity policy, we do not discriminate on the basis of any protected group status under any applicable law. </p>
-
-    
+  
 <div class="field" id="gender_dropdown_container">
   <label for="job_application_gender">Gender</label>
   <select name="job_application[gender]" id="job_application_gender"><option value="">Please select</option><option value="1">Male</option>
@@ -217,12 +212,7 @@
     <a target="_blank" href="https://boards.cdn.greenhouse.io/docs/RaceEthnicityDefinitions.pdf">
       Race &amp; Ethnicity Definitions
 </a>
-    <p> If you believe you belong to any of the categories of protected veterans listed below, please indicate by making the appropriate selection.  As a government contractor subject to the Vietnam Era Veterans Readjustment Assistance Act (VEVRAA), we request this information in order to measure the effectiveness of the outreach and positive recruitment efforts we undertake pursuant to VEVRAA. Classification of protected categories is as follows&#58; </p>
-<p> A "disabled veteran" is one of the following&#58; a veteran of the U.S. military, ground, naval or air service who is entitled to compensation (or who but for the receipt of military retired pay would be entitled to compensation) under laws administered by the Secretary of Veterans Affairs; or a person who was discharged or released from active duty because of a service-connected disability. </p>
-<p> A "recently separated veteran" means any veteran during the three-year period beginning on the date of such veteran's discharge or release from active duty in the U.S. military, ground, naval, or air service. </p>
-<p> An "active duty wartime or campaign badge veteran" means a veteran who served on active duty in the U.S. military, ground, naval or air service during a war, or in a campaign or expedition for which a campaign badge has been authorized under the laws administered by the Department of Defense. </p>
-<p> An "Armed forces service medal veteran" means a veteran who, while serving on active duty in the U.S. military, ground, naval or air service, participated in a United States military operation for which an Armed Forces service medal was awarded pursuant to Executive Order 12985. </p>
-
+    
     
 <div class="field" id="veteran_status_dropdown_container">
   <label for="job_application_veteran_status">Veteran Status</label>
@@ -231,15 +221,7 @@
 <option value="3">I don&#39;t wish to answer</option></select>
 </div>
     <hr/>
-
-    <div class="eeoc_form_data"> <p>Form CC-305</p> <p>OMB Control Number 1250-0005</p> <p>Expires 05/31/2023 </p> </div>
-<h3 id="disability_status_header">Voluntary Self-Identification of Disability</h3>
-<strong>Why are you being asked to complete this form?</strong>
-<p> We are a federal contractor or subcontractor required by law to provide equal employment opportunity to qualified people with disabilities. We are also required to measure our progress toward having at least 7% of our workforce be individuals with disabilities. To do this, we must ask applicants and employees if they have a disability or have ever had a disability. Because a person may become disabled at any time, we ask all of our employees to update their information at least every five years. </p>
-<p> Identifying yourself as an individual with a disability is voluntary, and we hope that you will choose to do so. Your answer will be maintained confidentially and not be seen by selecting officials or anyone else involved in making personnel decisions. Completing the form will not negatively impact you in any way, regardless of whether you have self-identified in the past. For more information about this form or the equal employment obligations of federal contractors under Section 503 of the Rehabilitation Act, visit the U.S. Department of Labor’s Office of Federal Contract Compliance Programs (OFCCP) website at <a href="https://www.dol.gov/ofccp" target="_blank">www.dol.gov/ofccp</a>. </p>
-<strong>How do you know if you have a disability?</strong> <p> You are considered to have a disability if you have a physical or mental impairment or medical condition that substantially limits a major life activity, or if you have a history or record of such an impairment or medical condition. </p>
-<p>Disabilities include, but are not limited to:</p> <ul> <li>Autism</li> <li>Autoimmune disorder, for example, lupus, fibromyalgia, rheumatoid arthritis, or HIV/AIDS</li> <li>Blind or low vision</li> <li>Cancer</li> <li>Cardiovascular or heart disease</li> <li>Celiac disease</li> <li>Cerebral palsy</li> <li>Deaf or hard of hearing</li> <li>Depression or anxiety</li> <li>Diabetes</li> <li>Epilepsy</li> <li>Gastrointestinal disorders, for example, Crohn's Disease, or irritable bowel syndrome</li> <li>Intellectual disability</li> <li>Missing limbs or partially missing limbs</li> <li>Nervous system condition for example, migraine headaches, Parkinson’s disease, or Multiple sclerosis (MS)</li> <li>Psychiatric condition, for example, bipolar disorder, schizophrenia, PTSD, or major depression</li> </ul>
-
+	
     
 <div class="field" id="disability_status_dropdown_container">
   <label for="job_application_disability_status">Disability Status</label>
@@ -247,9 +229,7 @@
 <option value="2">No, I don&#39;t have a disability, or a history/record of having a disability</option>
 <option value="3">I don&#39;t wish to answer</option></select>
 </div>
-    <p> <sup>1</sup>Section 503 of the Rehabilitation Act of 1973, as amended.  For more information about this form or the equal employment obligations of Federal contractors, visit the U.S. Department of Labor's Office of Federal Contract Compliance Programs (OFCCP) website at <a href="https://www.dol.gov/ofccp" target="_blank">www.dol.gov/ofccp</a>. </p>
-<p> PUBLIC BURDEN STATEMENT&#58;  According to the Paperwork Reduction Act of 1995 no persons are required to respond to a collection of information unless such collection displays a valid OMB control number. This survey should take about 5 minutes to complete. </p>
-</div>
+    </div>
 
 
 
