@@ -2,10 +2,14 @@ from flask import Flask
 from flask import request
 from service import Service
 import json
+import pymongo
+from pymongo import MongoClient
+from urllib.parse import quote
 
 app = Flask(__name__)
 
 service = Service()
+
 
 @app.route('/')
 def health_check():
