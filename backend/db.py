@@ -18,10 +18,10 @@ class Db:
                                            email, pass_bool]
 
     def get_profile_info(self, uci_netid):
-        profile = (self.df.loc[self.df['uci_netid'] == uci_netid]).to_dict()
+        profile = (self.df.loc[self.df['uci_netid'] == uci_netid]).T.to_dict()
         # parsed = json.loads(profile)
         return json.dumps(profile)
 
     def get_profiles_info(self):
-        result = self.df.to_dict()
+        result = self.df.T.to_dict()
         return json.dumps(result)
