@@ -17,7 +17,7 @@
     	<div class="col-rt-12">
         	<div class="rt-heading">
             	<h1>Student Profile Page</h1>
-            </div>
+          </div>
         </div>
     </div>
 </header>
@@ -54,68 +54,116 @@
                               <tr>
                                 <th width="30%">First Name</th>
                                 <td width="2%">:</td>
-                                <td  class='val'>John</td>
+                                <td ><input type="text" class='val' readonly></td>
                               </tr>
                               <tr>
                                 <th width="30%">Last Name</th>
                                 <td width="2%">:</td>
-                                <td  class='val'>Sno</td>
-                              </tr>
-                              <tr>
-                                <th width="30%">Gender</th>
-                                <td width="2%">:</td>
-                                <td  class='val'>Male</td>
-                              </tr>
-                              <tr>
-                                <th width="30%">Sexual Orientation</th>
-                                <td width="2%">:</td>
-                                <td  class='val'>Heterosexual</td>
+                                <td><input type="text" class='val' readonly></td>
                               </tr>
                               <tr>
                                 <th width="30%">Major</th>
                                 <td width="2%">:</td>
-                                <td  class='val'>Computer Science</td>
+                                <td  >
+                                  <select class='val' disabled>
+                                    <option value="Computer Science">Computer Science</option>
+                                    <option value="Data Science">Data Science</option>
+                                  </select>
+                                </td>
                               </tr>
                               <tr>
                                 <th width="30%">Current Year</th>
                                 <td width="2%">:</td>
-                                <td  class='val'>Graduate</td>
+                                <td  >
+                                  <select class='val' disabled>
+                                    <option value="Graduate">Graduate</option>
+                                    <option value="Senior">Senior</option>
+                                    <option value="Junior">Junior</option>
+                                  </select>
+                                </td>
                               </tr>
                               <tr>
                                 <th width="30%">Expected graduation</th>
                                 <td width="2%">:</td>
-                                <td  class='val'>2022</td>
+                                <td>
+                                  <select class='val' disabled>
+                                    <option value="Fall 22">Fall 22</option>
+                                    <option value="Winter 23">Winter 23</option>
+                                  </select>
+                                </td>
                               </tr>
                               <tr>
                                 <th width="30%">Work Experience(years)</th>
                                 <td width="2%">:</td>
-                                <td  class='val'>2</td>
+                                <td ><input type="number" min="0" class='val' readonly></td>
                               </tr>
                               <tr>
                                 <th width="30%">Skills</th>
                                 <td width="2%">:</td>
-                                <td  class='val'>C++,SQL,Kafka</td>
+                                <td >
+                                  <select class='val' multiple disabled>
+                                    <option value="HTML">HTML</option>
+                                    <option value="CSS">CSS</option>
+                                    <option value="JavaScript">JavaScript</option>
+                                  </select></td>
                               </tr>
                               <tr>
-                                <th width="30%">Work authorization status</th>
+                                <th width="30%">Work sponsorship required?</th>
                                 <td width="2%">:</td>
-                                <td  class='val'>Requires sponsorship</td>
+                                <td>
+                                  <select class='val' disabled>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                  </select>
+                                </td>
                               </tr>
                               <tr>
-                                <th width="30%">Disability status</th>
+                                <th width="30%">Gender</th>
                                 <td width="2%">:</td>
-                                <td  class='val'>NA</td>
-                              </tr>
-                              <tr>
-                                <th width="30%">Veteran status</th>
-                                <td width="2%">:</td>
-                                <td  class='val'>NA</td>
+                                <td  >
+                                  <select class='val' disabled>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                    <option value="Decline to self-identify">Decline to self-identify</option>
+                                  </select>
+                                </td>
                               </tr>
                               <tr>
                                 <th width="30%">Ethnicity</th>
                                 <td width="2%">:</td>
-                                <td  class='val'>Asian</td>
+                                <td>
+                                  <select class='val' disabled>
+                                    <option value="Hispanic/Latino">Hispanic/Latino</option>
+                                    <option value="Asian">Asian</option>
+                                    <option value="Black">Black</option>
+                                    <option value="White">White</option>
+                                  </select>
+                                </td>
                               </tr>
+                              <tr>
+                                <th width="30%">Disability status</th>
+                                <td width="2%">:</td>
+                                <td>
+                                  <select class='val' disabled>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                    <option value="Decline to self-identify" disabled>Decline to self-identify</option>
+                                  </select>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th width="30%">Veteran status</th>
+                                <td width="2%">:</td>
+                                <td>
+                                  <select class='val' disabled>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                    <option value="Decline to self-identify">Decline to self-identify</option>
+                                  </select>
+                                </td>
+                              </tr>
+
                             </table>
                           </div>
                           <div>
