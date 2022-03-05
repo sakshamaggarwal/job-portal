@@ -7,7 +7,7 @@ function myfunction(){
             var result = response.data;
             var num= Object.keys(result).length;
             if (num>0){
-                window.location.href="dashboard"
+                window.location.href="profile.html"
             } else{
                 window.location.href="registration"
             }
