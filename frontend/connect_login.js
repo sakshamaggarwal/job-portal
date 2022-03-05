@@ -9,7 +9,7 @@ function myfunction(){
             if (num>0){
                 window.location.href="profile.html"
             } else{
-                window.location.href="registration"
+                window.location.href="form.html"
             }
         },
 
