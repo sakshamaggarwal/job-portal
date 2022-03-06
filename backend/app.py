@@ -2,10 +2,14 @@ from flask import Flask
 from flask import request
 from service import Service
 import json
+import pymongo
+from pymongo import MongoClient
+from urllib.parse import quote
 
 app = Flask(__name__)
 
 service = Service()
+
 
 @app.route('/')
 def health_check():
@@ -32,6 +36,33 @@ def get_profile(id):
 def get_profiles():
     return service.get_all_profiles()
 
+@app.route('/addApplication', methods=['POST'])
+def add_application():
+    global service
+    json_data = request.json
+    print(json_data.keys())
+    service.add_application(json_data['uci_netid'], json_data['company'], json_data['status'], json_data['job_type'], json_data['link'], json_data['position'],
+                           json_data['location'], json_data['job_id'], json_data['date_applied'], json_data['deadline'])
+    return json.dumps({"record added for : " 'uci_netid':json_data['uci_netid'], 'company':json_data['company']})
+
+@app.route('/updateApplication', methods=['POST'])
+def update_application():
+    global service
+    json_data = request.json
+    print(json_data.keys())
+    service.update_application(json_data['uci_netid'], json_data['company'], json_data['status'], json_data['job_type'], json_data['link'], json_data['position'],
+                           json_data['location'], json_data['job_id'], json_data['date_applied'], json_data['deadline'])
+    return json.dumps({"record updated for : " 'uci_netid':json_data['uci_netid'], 'company':json_data['company']})
+
+@app.route('/getJobListing')
+def get_job_listing():
+    global service
+    return service.job_listing()
+
+@app.route('/getAllApplications')
+def get_aplications():
+    global service
+    return service.get_all_applications()
 
 if __name__ == '__main__':
     app.run()
