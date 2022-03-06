@@ -2,43 +2,24 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<body>
+<body style="background-color:#ADD8E6;">
+
     <div id='application' class="">
         <div id='main_fields'>
             <h2 class='heading'>User Details</h2>
-            <div class='required-fields'>
-              <span class='asterisk'>*</span> Required
-            </div>
+          
           <div class='clear'></div>
-            <div id="apply_with_buttons">
-                
-  <div name="widget-holder">
-  <script type="text/javascript" src="https://www.linkedin.com/mjobs/awli/awliWidget"></script>
-  <script type="IN/AwliWidget" data-company-job-code="5456662002" data-allow-sign-in="true" data-callback-method="JBEN.LinkedinProfile.receive" data-mode="BUTTON_DATA" data-api-key="86s6f6r80xz7aj" data-integration-context="urn:li:organization:10693191">
-//<![CDATA[
-
-//]]>
-</script>
-  <script>
-    window.addEventListener('load', function() {
-      if ($) {
-        $("iframe[src*='linkedin.com']").attr("title", "Apply with LinkedIn")
-      }
-    });
-  </script>
-</div>
-
-
-
-
-              <hr/>
-            </div>
+            
 
           
 <script>
   var EMAIL_ADDRESS_VALIDATOR_URL = 'https://email-address-validator.us.greenhouse.io/address/validate';
 </script>
 
+<div class='field'>
+  <label for='uci_netid'>uci_netid<span class='asterisk' aria-hidden='true'>*</span></label>
+  <br><input type='text' id='uci_netid' name='job_application[uci_netid]' aria-required="true" maxlength="255" autocomplete="uci_netid"/>
+</div>
 <div class='field'>
   <label for='first_name'>First Name <span class='asterisk' aria-hidden='true'>*</span></label>
   <br><input type='text' id='first_name' name='job_application[first_name]' aria-required="true" maxlength="255" autocomplete="given-name"/>
@@ -48,90 +29,38 @@
   <br><input type='text' id='last_name' name='job_application[last_name]' aria-required="true" maxlength="255" autocomplete="family-name" />
 </div>
 <div class='field'>
-  <label for='email'>Email <span class='asterisk' aria-hidden='true'>*</span></label>
-	<br><input type='text' id='email' name='job_application[email]' aria-required="true" maxlength="255" autocomplete="email" />
-</div>
-<div>
-<label for="pwd">Password:</label>
-  <br><input type="password" id="pwd" name="pwd" minlength="8">
- </div>
- <div>
-<label for="pwd">Re-enter Password:</label>
-  <br><input type="password" id="pwd2" name="pwd2" minlength="8">
- </div>
-<div class='field'>
-  <label for='phone'>Phone <span class='asterisk' aria-hidden='true'>*</span></label>
-  <br><input type='text' id='phone' name='job_application[phone]' maxlength="255" autocomplete="tel" required='required' aria-required="true"/>
+  <label for='major'>Major <span class='asterisk' aria-hidden='true'>*</span></label>
+  <br><input type='text' id='major' name='job_application[major]' aria-required="true" maxlength="255" autocomplete="major" />
 </div>
 <div class='field'>
-  <label for='Gender'>Gender <span class='asterisk' aria-hidden='true'>*</span></label>
-  <br><input type='text' id='Gender' name='job_application[Gender]' aria-required="true" maxlength="25" autocomplete="Gender" />
+  <label for='year'>Expected Graduation Year <span class='asterisk' aria-hidden='true'>*</span></label>
+	<br><input type='text' id='year' name='job_application[year]' aria-required="true" maxlength="255" autocomplete="year" />
 </div>
+<div class="field" id="gender">
+  <label for="gender">Gender</label>
+  <select name="job_application[gender]" id="gender"><option value="">Please select</option><option value="1">Male</option>
+<option value="2">Female</option>
+<option value="3">Decline To Self Identify</option></select>
+</div>
+<div class="field" id="disability">
+  <label for="disability">Disability Status</label>
+  <select name="job_application[disability]" id="disability"><option value="">Please select</option><option value="1">Yes, I have a disability, or have a history/record of having a disability</option>
+<option value="2">No, I don&#39;t have a disability, or a history/record of having a disability</option>
+<option value="3">I don&#39;t wish to answer</option></select>
+</div>
+<div class="field" id="veteran">
+  <label for="veteran">Veteran Status</label>
+  <select name="job_application[veteran]" id="veteran"><option value="">Please select</option><option value="1">I am not a protected veteran</option>
+<option value="2">I identify as one or more of the classifications of a protected veteran</option>
+<option value="3">I don&#39;t wish to answer</option></select>
+</div>
+
+
 <div class='field'>
-  <label for='SExual Orientation'>SExual Orientation <span class='asterisk' aria-hidden='true'>*</span></label>
-  <br><input type='text' id='SExual Orientation' name='job_application[SExual Orientation]' aria-required="true" maxlength="255" autocomplete="family-name" />
+  <label for='Work'>Work Experience<span class='asterisk' aria-hidden='true'>*</span></label>
+	<br><input type='text' id='work' name='job_application[work]' aria-required="true" maxlength="255" autocomplete="Work" />
 </div>
-
-
-            <div class='field'>
-              <label for='job_application_location'>
-                Location (City)
-                  <span class='asterisk' aria-hidden='true'>*</span>
-              </label>
-
-              <br><input type="text" name="job_application[location]" id="job_application_location" class="job-application-location" aria-required="true" role="presentation" maxlength="255" data-provider="Pelias" data-type="locality,localadmin,borough" />
-            </div>
-
-          
-<div class='field'>
-  <label aria-label="required" id="resume">Resume/CV <span class='asterisk' aria-hidden='true'>*</span></label>
-  
-<div class="attach-or-paste " required="required" data-allow-s3="true" data-field="resume" data-file-types="[&quot;pdf&quot;,&quot;doc&quot;,&quot;docx&quot;,&quot;txt&quot;,&quot;rtf&quot;]" data-model="job_application">
-
-  <div class="drop-zone hidden">
-    Drop files here
-  </div>
-
-  <div id="resume_chosen" class="chosen">
-    <img src="https://boards.cdn.greenhouse.io/assets/file-296f4c2a42607d24e6901b7c58b0693d4178df7fe4edf1b50e9585efdfad7d39.png" />&nbsp;&nbsp;
-    <span id="resume_filename"></span>
-    <a href="#" class="remove">
-      <img width="11" height="11" src="https://boards.cdn.greenhouse.io/assets/cancellation/x-00cb7c69bded92bc90f03e0028a3457a4905b1e28c8a7fe16b792086c4288c29.png" />
-    </a>
-</div>
-  <div class="link-container">
-    <a data-source="attach" aria-labelledby="resume" href="#">Attach</a>
-
-        <a data-source="dropbox" aria-labelledby="resume" href="#">Dropbox</a>
-
-        <a data-source="google-drive" aria-labelledby="resume" href="#">Google Drive</a>
-
-      <a data-source="paste" aria-labelledby="resume" href="#">Paste</a>
-</div>  <div data-messages="uploaders"></div>
-
-  <div class="validation-anchor" id=validate_resume style="display: none" id=""></div>
-
-  <div class="progress-bar">
-    <div class="upload">
-      <div class="progress"><div class="bar" style="width: 0%"></div></div>
-    </div>
-    <a href="#" class="cancel">
-      <img width="11" height="11" src="https://boards.cdn.greenhouse.io/assets/cancellation/x-00cb7c69bded92bc90f03e0028a3457a4905b1e28c8a7fe16b792086c4288c29.png" />
-    </a>
-</div>
-    <textarea name="job_application[resume_text]" id="resume_text" class="paste">
-</textarea>
-
-</div>
-
-</div>
-
-
-
-           
-            <hr/>
-
-          <div id='custom_fields'>
+<div id='custom_fields'>
             <div class="field">
   <label>Skills<span class="asterisk" aria-hidden="true">&nbsp;*</span>
     <br/>
@@ -141,14 +70,22 @@
 
 <textarea name="job_application[answers_attributes][0][text_value]" id="job_application_answers_attributes_0_text_value" aria-required="true" autocomplete="custom-question-what-is-your-primary-coding-language">
 </textarea>
+
+<div class="field" id="work_auth">
+  <label for="work_auth">Work Authorization</label>
+  <select name="work_auth" id="work_auth"><option value="">Please select</option><option value="Yes">Yes</option>
+<option value="No">No</option>
+<option value="Decline To Self Identify">Decline To Self Identify</option></select>
+</div>   
+
+          </div>
+
+          
 <div class='field'>
   <label for='work'>Work Authorization Status ( Current Visa status) <span class='asterisk' aria-hidden='true'>*</span></label>
 	<br><input type='text' id='work' name='job_application[work]' aria-required="true" maxlength="255" autocomplete="email" />
 </div>
-<div class='field'>
-  <label for='graduation'>Expected Graduation Date <span class='asterisk' aria-hidden='true'>*</span></label>
-	<br><input type='text' id='graduation' name='job_application[graduation]' aria-required="true" maxlength="255" autocomplete="graduation" />
-</div>
+
 </label></div>
 <div class="field">
   <label>Are you seeking full-time employment or an Internship? <span class="asterisk" aria-hidden="true">&nbsp;*</span>
@@ -162,36 +99,12 @@
 
 
 </label></div>
-<div class="field">
-  <label>What is your current enrollment type? ( Please select the one that is most relevant )<span class="asterisk" aria-hidden="true">&nbsp;*</span>
-    <br/>
-    
-    <input type="hidden" name="job_application[answers_attributes][2][question_id]" id="job_application_answers_attributes_2_question_id" value="13779959002" />
-<input type="hidden" name="job_application[answers_attributes][2][priority]" id="job_application_answers_attributes_2_priority" value="2" />
-
-<select name="job_application[answers_attributes][2][answer_selected_options_attributes][2][question_option_id]" id="job_application_answers_attributes_2_answer_selected_options_attributes_2_question_option_id" aria-required="true" style="width: 200px;"><option value="">Please select</option><option value="61601376002">BS/BA</option>
-<option value="61601377002">MBA</option>
-<option value="61601378002">MS</option>
-<option value="61601379002">Ph.D.</option></select>
 
 
-</label></div>
 
-          </div>
-
-
-          <hr/>
 <div id="eeoc_fields">
-  <h3 id="eeoc_title">Voluntary Self-Identification</h3>
+ 
 
-  <p> For government reporting purposes, we ask candidates to respond to the below self-identification survey. Completion of the form is entirely <strong>voluntary</strong>. Whatever your decision, it will not be considered in the hiring process or thereafter. Any information that you do provide will be recorded and maintained in a confidential file. </p>
-  
-<div class="field" id="gender_dropdown_container">
-  <label for="job_application_gender">Gender</label>
-  <select name="job_application[gender]" id="job_application_gender"><option value="">Please select</option><option value="1">Male</option>
-<option value="2">Female</option>
-<option value="3">Decline To Self Identify</option></select>
-</div>    
 <div class="field" id="hispanic_ethnicity_dropdown_container">
   <label for="job_application_hispanic_ethnicity">Are you Hispanic/Latino?</label>
   <select name="job_application[hispanic_ethnicity]" id="job_application_hispanic_ethnicity"><option value="">Please select</option><option value="Yes">Yes</option>
@@ -214,21 +127,11 @@
 </a>
     
     
-<div class="field" id="veteran_status_dropdown_container">
-  <label for="job_application_veteran_status">Veteran Status</label>
-  <select name="job_application[veteran_status]" id="job_application_veteran_status"><option value="">Please select</option><option value="1">I am not a protected veteran</option>
-<option value="2">I identify as one or more of the classifications of a protected veteran</option>
-<option value="3">I don&#39;t wish to answer</option></select>
-</div>
+
     <hr/>
 	
     
-<div class="field" id="disability_status_dropdown_container">
-  <label for="job_application_disability_status">Disability Status</label>
-  <select name="job_application[disability_status]" id="job_application_disability_status"><option value="">Please select</option><option value="1">Yes, I have a disability, or have a history/record of having a disability</option>
-<option value="2">No, I don&#39;t have a disability, or a history/record of having a disability</option>
-<option value="3">I don&#39;t wish to answer</option></select>
-</div>
+
     </div>
 
 
@@ -258,6 +161,7 @@
 
     </div>
 
-
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="connect_login.js"></script>
   </body>
 </html>
