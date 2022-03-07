@@ -15,7 +15,6 @@ function postProfile(){
 	var element_wa = document.getElementById("work_auth").value;
 	var element_race = document.getElementById("race_dropdown_container").value;
 	
-    var base ='http://127.0.0.1:5000/profile/'
 	uci_netid, first_name, last_name, major, year, gender, sex, disability,
                      veteran, work_ex, skills, work_auth, grad_date, ethinicity,
                      email, pass_bool
