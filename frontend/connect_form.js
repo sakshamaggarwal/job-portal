@@ -1,7 +1,7 @@
 
 const axios = require('axios');
 
-function makeGetRequest(){
+function postProfile(){
     var element_id = document.getElementById("uci_netid").value;
 	var element_fname = document.getElementById("first_name").value;
 	var element_lname = document.getElementById("last_name").value;
@@ -26,6 +26,6 @@ function makeGetRequest(){
 	let data = res.data;
     console.log(data);
 }
-makeGetRequest();
+postProfile();
 
 
