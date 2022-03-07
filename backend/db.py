@@ -4,39 +4,37 @@ import pymongo
 from pymongo import MongoClient
 from urllib.parse import quote
 
+
 class Db:
     def __init__(self):
         password = "123456!@#"
-        mongo_url = "mongodb+srv://job_portal:" + quote(password)+"@cluster0.wxp6t.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+        mongo_url = "mongodb+srv://job_portal:" + quote(
+            password) + "@cluster0.wxp6t.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
         cluster = MongoClient(mongo_url)
 
         self.db = cluster["Job_portal"]
         self.user_collection = self.db["Users"]
         self.applications_collection = self.db["applicationTracker"]
 
-    def save_profile(self, uci_netid, first_name, last_name, major, year, gender, sex, disability,
-                     veteran, work_ex, skills, work_auth, grad_date, ethinicity,
-                     email, pass_bool):
+    def save_profile(self, uci_netid, first_name, last_name, major, year, graduation_year, gender, race, disability,
+                     veteran, work_ex, skills, work_sponsorship):
         self.user_collection.update_one({"uci_netid": uci_netid},
-                                        {"$setOnInsert" :{
-            "uci_netid": uci_netid,
-            "first_name": first_name,
-            "last_name": last_name,
-            "major": major,
-            "year": year,
-            "gender": gender,
-            "sexual_orientation": sex,
-            "disability": disability,
-            "veteran": veteran,
-            "work_ex": work_ex,
-            "skills": skills,
-            "work_auth": work_auth,
-            "grad_date": grad_date,
-            "ethinicity": ethinicity,
-            "email": email,
-            "pass": pass_bool
-        }},
-        upsert=True)
+                                        {"$setOnInsert": {
+                                            "uci_netid": uci_netid,
+                                            "first_name": first_name,
+                                            "last_name": last_name,
+                                            "major": major,
+                                            "year": year,
+                                            "graduation_year": graduation_year,
+                                            "gender": gender,
+                                            "race": race,
+                                            "disability": disability,
+                                            "veteran": veteran,
+                                            "work_experience": work_ex,
+                                            "skills": skills,
+                                            "work_sponsorship": work_sponsorship
+                                        }},
+                                        upsert=True)
 
     def get_profile_info(self, uci_netid):
         cursor = self.user_collection.find({'uci_netid': uci_netid})
@@ -63,28 +61,46 @@ class Db:
         json_data = json.dumps(res)
         return json_data
 
-    def save_application(self, uci_netid, company, status, job_type, link, position, location, job_id, date_applied, deadline):
-        self.applications_collection.insert_one({
-            "uci_netid" : uci_netid,
-            "company": company,
-            "status": status,
-            "job_type": job_type,
-            "link": link,
-            "position": position,
-            "location": location,
-            "job_id": job_id,
-            "date_applied": date_applied,
-            "deadline": deadline
-        })
+    def save_and_update_application(self, uci_netid, company, status, job_type, link, position, location, job_id,
+                                    date_applied, deadline):
+        self.applications_collection.replace_one({"uci_netid": uci_netid, "company": company},
+                                                 {
+                                                     "uci_netid": uci_netid,
+                                                     "company": company,
+                                                     "status": status,
+                                                     "job_type": job_type,
+                                                     "link": link,
+                                                     "position": position,
+                                                     "location": location,
+                                                     "job_id": job_id,
+                                                     "date_applied": date_applied,
+                                                     "deadline": deadline
+                                                 },
+                                                 upsert=True)
 
-    def update_application(self, uci_netid, company, status, job_type, link, position, location, job_id, date_applied, deadline):
-        myquery = {"uci_netid": uci_netid, "company":company}
-        newvalues = {"$set": {"status": status, "job_type":job_type, "link":link, "position":position,
-                              "location":location, "job_id":job_id, "date_applied":date_applied, "deadline":deadline}}
-        self.applications_collection.update_one(myquery, newvalues)
+    def check_user_exists(self, uci_netid):
+        cursor = self.user_collection.find_one({"uci_netid": uci_netid})
+        if cursor is None:
+            return json.dumps("False")
+        else:
+            return json.dumps("True")
 
     def get_all_applications(self):
         cursor = self.applications_collection.find({})
+        list_cur = list(cursor)
+        print(list_cur)
+        res = []
+        for dicts in list_cur:
+            dict_2 = {}
+            for keys in dicts:
+                if keys != "_id":
+                    dict_2[keys] = dicts[keys]
+            res.append(dict_2)
+        json_data = json.dumps(res)
+        return json_data
+
+    def get_application(self, uci_netid):
+        cursor = self.applications_collection.find({"uci_netid": uci_netid})
         list_cur = list(cursor)
         print(list_cur)
         res = []
@@ -107,18 +123,17 @@ class Db:
         for dicts in list_user:
             dict_2 = {}
             for keys, values in dicts.items():
-                if keys != "_id" and len(values)>0:
+                if keys != "_id" and len(values) > 0:
                     dict_2[keys] = str(values)
             user_res.append(dict_2)
         print(user_res)
-
 
         app_res = defaultdict(list)
         for dicts in list_app:
             dict_2 = {}
             uci_netid = ""
             for keys, values in dicts.items():
-                if keys != "_id" and len(values)>0:
+                if keys != "_id" and len(values) > 0:
                     dict_2[keys] = str(values)
                     if keys == 'uci_netid':
                         uci_netid = values
@@ -130,7 +145,7 @@ class Db:
             uci_netid = user['uci_netid']
             job_list_dict = {}
             jobs_applied_by_user = app_res[uci_netid]
-            if len(jobs_applied_by_user)>0:
+            if len(jobs_applied_by_user) > 0:
                 for job in jobs_applied_by_user:
                     job_list_dict['status'] = job['status']
                     job_list_dict['company'] = job['company']
@@ -142,7 +157,8 @@ class Db:
                     job_list_dict['major'] = user['major']
                     job_list_dict['year'] = user['year']
                     job_list_dict['gender'] = user['gender']
-                    job_list_dict['sponsorship'] = user['work_auth']
+                    job_list_dict['sponsorship'] = user['work_sponsorship']
+                    job_list_dict['work_experience'] = user['work_experience']
                 job_listing.append(job_list_dict)
 
         json_data = json.dumps(job_listing)
