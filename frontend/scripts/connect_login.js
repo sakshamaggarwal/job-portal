@@ -1,17 +1,17 @@
 
 function myfunction(){
     var element = document.getElementById("txtuser").value;
-    var base ='http://127.0.0.1:5000/profile/'
+    var base ='http://127.0.0.1:5000/userExists/'
     axios.get(base+element)
     .then((response) => {
             var result = response.data;
-            window.location.href="profile.html"
+            if (result=='True'){
+                 window.location.href="profile/"+ element+".html";
+            }
+            else{
+                window.location.href="form.html";
+            }
 
-        }).catch(function (error) {
-    if (error.response.status==500) {
-
-      console.log(error.response.status);
-      window.location.href="form.html"
-    }
 
 });
+}
