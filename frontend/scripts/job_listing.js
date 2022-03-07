@@ -3,7 +3,7 @@
 // {2 : ["M", "F"], 3 : ["RnD", "Engineering", "Design"], 4 : [], 5 : []}
 
 function getUniqueValuesFromColumn() {
-
+  //console.log("called");
     var unique_col_values_dict = {}
 
     allFilters = document.querySelectorAll(".table-filter")
@@ -106,11 +106,8 @@ function filter_rows() {
 
         } else {
             row.style.display = "none"
-
         }
-
     })
-
 }
 
 function reset()
@@ -124,4 +121,26 @@ function reset()
       option.selected="all";
   });
   filter_rows();
+}
+
+function fetch()
+{
+  console.log("called");
+  $.get( "http://localhost:5000/getJobListing", function( data, status ) {
+    result=JSON.parse(data);
+    for(var i=0;i<result.length;i++)
+    {
+      row=document.createElement("tr");
+      for(var key in result[i])
+      {
+        console.log(key+" "+result[i][key])
+        cell=document.createElement("td");
+        cell.innerHTML=result[i][key];
+        row.appendChild(cell);
+      }
+      document.getElementsByTagName("tbody")[0].appendChild(row);
+    }
+
+    getUniqueValuesFromColumn();
+  });
 }

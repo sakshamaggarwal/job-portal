@@ -8,8 +8,8 @@
 
     <link rel="stylesheet" href="css/css_final.css">
 
-    <script src="scripts/filter.js"></script>
-
+    <script src="scripts/job_listing.js"></script>
+    <script src="scripts/jquery.min.js"></script>
     <!-- <link rel="stylesheet" href="./css-1.css"> -->
     <title>Fixed table</title>
 </head>
@@ -84,6 +84,7 @@
             </th>
         </thead>
         <tbody>
+            <!--
             <tr>
                 <td>Applied</td>
                 <td>Google</td>
@@ -196,7 +197,7 @@
                 <td>2</td>
                 <td>Yes</td>
             </tr>
-
+          -->
         </tbody>
     </table>
     <!-- <script>getUniqueValuesFromColumn()
@@ -207,7 +208,7 @@
             console.log(document.querySelector("#emp-table > tbody > tr:nth-child(1) > td:nth-child(2) ").innerHTML);
         };
         */
-        getUniqueValuesFromColumn();
+        fetch();
 
     </script>
 </div>

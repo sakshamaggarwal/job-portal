@@ -5,9 +5,10 @@ import json
 import pymongo
 from pymongo import MongoClient
 from urllib.parse import quote
+from flask_cors import CORS
 
 app = Flask(__name__)
-
+CORS(app)
 service = Service()
 
 
