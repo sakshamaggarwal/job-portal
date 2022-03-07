@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/css_final.css">
+
+    <script src="scripts/job_listing.js"></script>
+    <script src="scripts/jquery.min.js"></script>
+    <!-- <link rel="stylesheet" href="./css-1.css"> -->
+    <title>Fixed table</title>
+</head>
+
+<body>
+    <div class="heading">
+    <h1>Job Listing</h1>
+    <!-- <button id="get-unique-values" onclick="getUniqueValuesFromColumn()">Get unique column values</button> -->
+</div>
+    <div class="outer-wrapper">
+      <button onclick="reset()">Reset filters</button>
+    <div class="table-wrapper">
+    <table id="emp-table">
+        <!--
+        <tr>
+
+        </tr>
+        -->
+        <thead>
+          <th colspan="7">Job Profile</th>
+          <th colspan="5">Applicant Profile</th>
+        </thead>
+        <thead>
+          <th col-index = 1>Status
+              <select class="table-filter" onchange="filter_rows()">
+                  <option value="all">all</option>
+              </select>
+          </th>
+          <th col-index = 2>Company
+                <select class="table-filter" onchange="filter_rows()">
+                    <option value="all">all</option>
+                </select>
+            </th>
+
+            <th col-index = 3>Type
+                <select class="table-filter" onchange="filter_rows()">
+                    <option value="all">all</option>
+                </select>
+            </th>
+            <th col-index = 4>Position
+                <select class="table-filter" onchange="filter_rows()">
+                    <option value="all">all</option>
+                </select>
+            </th>
+            <th col-index = 5>Date Applied</th>
+            <th col-index = 6>Deadline</th>
+            <th col-index = 7>Link</th>
+            <th col-index = 8>Major
+              <select class="table-filter" onchange="filter_rows()">
+                  <option value="all">all</option>
+              </select>
+            </th>
+            <th col-index = 9>Year
+              <select class="table-filter" onchange="filter_rows()">
+                <option value="all">all</option>
+              </select>
+            </th>
+            <th col-index = 10>Gender
+              <select class="table-filter" onchange="filter_rows()">
+                <option value="all">all</option>
+              </select>
+            </th>
+            <th col-index = 11>Work Experience
+              <select class="table-filter" onchange="filter_rows()">
+                <option value="all">all</option>
+              </select>
+            </th>
+            <th col-index = 12>Work Sponsorship
+              <select class="table-filter" onchange="filter_rows()">
+                <option value="all">all</option>
+              </select>
+            </th>
+        </thead>
+        <tbody>
+            <!--
+            <tr>
+                <td>Applied</td>
+                <td>Google</td>
+                <td>Full-time</td>
+                <td>Software Developer</td>
+                <td>2-2-22</td>
+                <td>2-2-22</td>
+                <td><a href="">Apply</a></td>
+                <td>Computer Science</td>
+                <td>Senior</td>
+                <td>Other</td>
+                <td>3</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Applied</td>
+                <td>Meta</td>
+                <td>Internship</td>
+                <td>Software Tester</td>
+                <td>2-2-22</td>
+                <td>2-2-22</td>
+                <td><a href="">Apply</a></td>
+                <td>Computer Science</td>
+                <td>Senior</td>
+                <td>Female</td>
+                <td>1</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td>Interview</td>
+                <td>Amazon</td>
+                <td>Full-time</td>
+                <td>Software Developer</td>
+                <td>2-2-22</td>
+                <td>2-2-22</td>
+                <td><a href="">Apply</a></td>
+                <td>Computer Science</td>
+                <td>Junior</td>
+                <td>Not disclosed</td>
+                <td>1</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Reject</td>
+                <td>Amazon</td>
+                <td>Internship</td>
+                <td>Software Developer</td>
+                <td>2-2-22</td>
+                <td>2-2-22</td>
+                <td><a href="">Apply</a></td>
+                <td>Computer Science</td>
+                <td>Junior</td>
+                <td>Not disclosed</td>
+                <td>4</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td>Reject</td>
+                <td>Meta</td>
+                <td>Internship</td>
+                <td>Software Developer</td>
+                <td>2-2-22</td>
+                <td>2-2-22</td>
+                <td><a href="">Apply</a></td>
+                <td>Computer Science</td>
+                <td>Graduate</td>
+                <td>Other</td>
+                <td>4</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Applied</td>
+                <td>Google</td>
+                <td>Full-time</td>
+                <td>Software Tester</td>
+                <td>2-2-22</td>
+                <td>2-2-22</td>
+                <td><a href="">Apply</a></td>
+                <td>Computer Science</td>
+                <td>Graduate</td>
+                <td>Female</td>
+                <td>0</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Applied</td>
+                <td>Meta</td>
+                <td>Internship</td>
+                <td>Data Engineer</td>
+                <td>2-2-22</td>
+                <td>2-2-22</td>
+                <td><a href="">Apply</a></td>
+                <td>Computer Science</td>
+                <td>Graduate</td>
+                <td>Male</td>
+                <td>0</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td>Applied</td>
+                <td>Meta</td>
+                <td>Full-time</td>
+                <td>Software Tester</td>
+                <td>2-2-22</td>
+                <td>2-2-22</td>
+                <td><a href="">Apply</a></td>
+                <td>Computer Science</td>
+                <td>Graduate</td>
+                <td>Male</td>
+                <td>2</td>
+                <td>Yes</td>
+            </tr>
+          -->
+        </tbody>
+    </table>
+    <!-- <script>getUniqueValuesFromColumn()
+    </script> -->
+    <script>
+      /*
+        window.onload = () => {
+            console.log(document.querySelector("#emp-table > tbody > tr:nth-child(1) > td:nth-child(2) ").innerHTML);
+        };
+        */
+        fetch();
+
+    </script>
+</div>
+</div>
+</body>
+
+</html>

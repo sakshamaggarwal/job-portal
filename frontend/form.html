@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body style="background-color:#ADD8E6;">
+
+    <div id='application' class="">
+        <div id='main_fields'>
+            <h2 class='heading'>User Details</h2>
+
+          <div class='clear'></div>
+
+
+
+<script>
+  var EMAIL_ADDRESS_VALIDATOR_URL = 'https://email-address-validator.us.greenhouse.io/address/validate';
+</script>
+
+<div class='field'>
+  <label for='uci_netid'>uci_netid<span class='asterisk' aria-hidden='true'>*</span></label>
+  <br><input type='text' id='uci_netid' name='job_application[uci_netid]' aria-required="true" maxlength="255" autocomplete="uci_netid"/>
+</div>
+<div class='field'>
+  <label for='first_name'>First Name <span class='asterisk' aria-hidden='true'>*</span></label>
+  <br><input type='text' id='first_name' name='job_application[first_name]' aria-required="true" maxlength="255" autocomplete="given-name"/>
+</div>
+<div class='field'>
+  <label for='last_name'>Last Name <span class='asterisk' aria-hidden='true'>*</span></label>
+  <br><input type='text' id='last_name' name='job_application[last_name]' aria-required="true" maxlength="255" autocomplete="family-name" />
+</div>
+<div class='field'>
+  <label for='major'>Major <span class='asterisk' aria-hidden='true'>*</span></label>
+  <br><input type='text' id='major' name='job_application[major]' aria-required="true" maxlength="255" autocomplete="major" />
+</div>
+<div class='field'>
+  <label for='year'>Expected Graduation Year <span class='asterisk' aria-hidden='true'>*</span></label>
+	<br><input type='text' id='year' name='job_application[year]' aria-required="true" maxlength="255" autocomplete="year" />
+</div>
+<div class="field" id="gender">
+  <label for="gender">Gender</label>
+  <select name="job_application[gender]" id="gender"><option value="">Please select</option><option value="1">Male</option>
+<option value="2">Female</option>
+<option value="3">Decline To Self Identify</option></select>
+</div>
+<div class="field" id="disability">
+  <label for="disability">Disability Status</label>
+  <select name="job_application[disability]" id="disability"><option value="">Please select</option><option value="1">Yes, I have a disability, or have a history/record of having a disability</option>
+<option value="2">No, I don&#39;t have a disability, or a history/record of having a disability</option>
+<option value="3">I don&#39;t wish to answer</option></select>
+</div>
+<div class="field" id="veteran">
+  <label for="veteran">Veteran Status</label>
+  <select name="job_application[veteran]" id="veteran"><option value="">Please select</option><option value="1">I am not a protected veteran</option>
+<option value="2">I identify as one or more of the classifications of a protected veteran</option>
+<option value="3">I don&#39;t wish to answer</option></select>
+</div>
+
+
+<div class='field'>
+  <label for='Work'>Work Experience<span class='asterisk' aria-hidden='true'>*</span></label>
+	<br><input type='text' id='work' name='job_application[work]' aria-required="true" maxlength="255" autocomplete="Work" />
+</div>
+<div id='custom_fields'>
+            <div class="field">
+  <label>Skills<span class="asterisk" aria-hidden="true">&nbsp;*</span>
+    <br/>
+
+    <input type="hidden" name="job_application[answers_attributes][0][question_id]" id="job_application_answers_attributes_0_question_id" value="13779957002" />
+<input type="hidden" name="job_application[answers_attributes][0][priority]" id="job_application_answers_attributes_0_priority" value="0" />
+
+<textarea name="job_application[answers_attributes][0][text_value]" id="job_application_answers_attributes_0_text_value" aria-required="true" autocomplete="custom-question-what-is-your-primary-coding-language">
+</textarea>
+
+<div class="field" id="work_auth">
+  <label for="work_auth">Work Authorization</label>
+  <select name="work_auth" id="work_auth"><option value="">Please select</option><option value="Yes">Yes</option>
+<option value="No">No</option>
+<option value="Decline To Self Identify">Decline To Self Identify</option></select>
+</div>
+
+          </div>
+
+
+<div class='field'>
+  <label for='work'>Work Authorization Status ( Current Visa status) <span class='asterisk' aria-hidden='true'>*</span></label>
+	<br><input type='text' id='work' name='job_application[work]' aria-required="true" maxlength="255" autocomplete="email" />
+</div>
+
+</label></div>
+<div class="field">
+  <label>Are you seeking full-time employment or an Internship? <span class="asterisk" aria-hidden="true">&nbsp;*</span>
+    <br/>
+
+    <input type="hidden" name="job_application[answers_attributes][1][question_id]" id="job_application_answers_attributes_1_question_id" value="13779958002" />
+<input type="hidden" name="job_application[answers_attributes][1][priority]" id="job_application_answers_attributes_1_priority" value="1" />
+
+<select name="job_application[answers_attributes][1][answer_selected_options_attributes][1][question_option_id]" id="job_application_answers_attributes_1_answer_selected_options_attributes_1_question_option_id" aria-required="true" style="width: 200px;"><option value="">Please select</option><option value="61601374002">Full-Time Employment</option>
+<option value="61601375002">Internship</option></select>
+
+
+</label></div>
+
+
+
+<div id="eeoc_fields">
+
+
+<div class="field" id="hispanic_ethnicity_dropdown_container">
+  <label for="job_application_hispanic_ethnicity">Are you Hispanic/Latino?</label>
+  <select name="job_application[hispanic_ethnicity]" id="job_application_hispanic_ethnicity"><option value="">Please select</option><option value="Yes">Yes</option>
+<option value="No">No</option>
+<option value="Decline To Self Identify">Decline To Self Identify</option></select>
+</div>
+<div class="field" id="race_dropdown_container">
+  <label for="job_application_race">Please identify your race</label>
+  <select name="job_application[race]" id="job_application_race"><option value="">Please select</option><option value="1">American Indian or Alaskan Native</option>
+<option value="2">Asian</option>
+<option value="3">Black or African American</option>
+<option hidden="hidden" value="4">Hispanic or Latino</option>
+<option value="5">White</option>
+<option value="6">Native Hawaiian or Other Pacific Islander</option>
+<option value="7">Two or More Races</option>
+<option value="8">Decline To Self Identify</option></select>
+</div>
+    <a target="_blank" href="https://boards.cdn.greenhouse.io/docs/RaceEthnicityDefinitions.pdf">
+      Race &amp; Ethnicity Definitions
+</a>
+
+
+
+    <hr/>
+
+
+
+    </div>
+
+
+
+
+
+          <div id='captcha_container'></div>
+  <hr/>
+
+
+
+        <div id='error_message'></div>
+
+        <div id='submit_buttons'>
+          <input
+            type='button'
+            value='Submit Application'
+            id='submit_app'
+            class='button'>
+        </div>
+</form>    </div>
+</div>
+
+
+
+
+
+    </div>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="./scripts/connect_login.js"></script>
+  </body>
+</html>
