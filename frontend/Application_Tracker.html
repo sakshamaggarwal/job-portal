@@ -129,6 +129,11 @@ $('#sub_but').click(function() {
 <script type="text/javascript">
 $(document).ready(function(){
     user=readCookie('uci_netid');
+    console.log(user);
+    if (user===null){
+        console.log("called");
+     window.location.href="login.html";
+    }
     $.ajax({
         url: "http://127.0.0.1:5000/getApplication/"+ user,
         dataType: 'json',
@@ -155,7 +160,7 @@ $(document).ready(function(){
         },
         error: function(d){
             /*console.log("error");*/
-            window.location.href="login.html";
+            alert("Error");
         }
     });
 });
