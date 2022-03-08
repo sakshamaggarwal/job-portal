@@ -128,6 +128,7 @@ function fetch()
   console.log("called");
   $.get( "http://localhost:5000/getJobListing", function( data, status ) {
     result=JSON.parse(data);
+    //console.log(result.length);
     for(var i=0;i<result.length;i++)
     {
       row=document.createElement("tr");
@@ -140,7 +141,7 @@ function fetch()
       }
       document.getElementsByTagName("tbody")[0].appendChild(row);
     }
-
+    //console.log(result.length);
     getUniqueValuesFromColumn();
   });
 }
