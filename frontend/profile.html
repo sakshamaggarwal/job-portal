@@ -37,8 +37,8 @@
                             <img class="profile_img" src="https://source.unsplash.com/600x300/?student" alt="student dp">
                             <h3>John Sno</h3>
                           </div>
-                          <div class="card-body">
-                            <p class="mb-0"><strong class="pr-1">Student ID:</strong>321000001</p>
+                          <div class="card-body" >
+                            <p class="mb-0" id='uci_netid'><strong class="pr-1">Student ID:</strong>321000001</p>
                             <p class="mb-0"><strong class="pr-1">Email:</strong>jsno1@uci.edu</p>
                           </div>
                         </div>
@@ -52,17 +52,17 @@
                             <table class="table table-bordered">
 
                               <tr>
-                                <th width="30%">First Name</th>
+                                <th width="30%" id='first_name'>First Name</th>
                                 <td width="2%">:</td>
                                 <td ><input type="text" class='val' readonly></td>
                               </tr>
                               <tr>
-                                <th width="30%">Last Name</th>
+                                <th width="30%" id='last_name'>Last Name</th>
                                 <td width="2%">:</td>
                                 <td><input type="text" class='val' readonly></td>
                               </tr>
                               <tr>
-                                <th width="30%">Major</th>
+                                <th width="30%" id='major'>Major</th>
                                 <td width="2%">:</td>
                                 <td  >
                                   <select class='val' disabled>
@@ -72,7 +72,7 @@
                                 </td>
                               </tr>
                               <tr>
-                                <th width="30%">Current Year</th>
+                                <th width="30%" id='year'>Current Year</th>
                                 <td width="2%">:</td>
                                 <td  >
                                   <select class='val' disabled>
@@ -83,7 +83,7 @@
                                 </td>
                               </tr>
                               <tr>
-                                <th width="30%">Expected graduation</th>
+                                <th width="30%" >Expected graduation</th>
                                 <td width="2%">:</td>
                                 <td>
                                   <select class='val' disabled>
@@ -93,12 +93,12 @@
                                 </td>
                               </tr>
                               <tr>
-                                <th width="30%">Work Experience(years)</th>
+                                <th width="30%" id='work'>Work Experience(years)</th>
                                 <td width="2%">:</td>
                                 <td ><input type="number" min="0" class='val' readonly></td>
                               </tr>
                               <tr>
-                                <th width="30%">Skills</th>
+                                <th width="30%" id='skills'>Skills</th>
                                 <td width="2%">:</td>
                                 <td >
                                   <select class='val' multiple disabled>
@@ -108,7 +108,7 @@
                                   </select></td>
                               </tr>
                               <tr>
-                                <th width="30%">Work sponsorship required?</th>
+                                <th width="30%" id="work_auth">Work sponsorship required?</th>
                                 <td width="2%">:</td>
                                 <td>
                                   <select class='val' disabled>
@@ -118,7 +118,7 @@
                                 </td>
                               </tr>
                               <tr>
-                                <th width="30%">Gender</th>
+                                <th width="30%" id="gender">Gender</th>
                                 <td width="2%">:</td>
                                 <td  >
                                   <select class='val' disabled>
@@ -130,7 +130,7 @@
                                 </td>
                               </tr>
                               <tr>
-                                <th width="30%">Ethnicity</th>
+                                <th width="30%" id="race_dropdown_container">Ethnicity</th>
                                 <td width="2%">:</td>
                                 <td>
                                   <select class='val' disabled>
@@ -142,7 +142,7 @@
                                 </td>
                               </tr>
                               <tr>
-                                <th width="30%">Disability status</th>
+                                <th width="30%" id="disability">Disability status</th>
                                 <td width="2%">:</td>
                                 <td>
                                   <select class='val' disabled>
@@ -153,7 +153,7 @@
                                 </td>
                               </tr>
                               <tr>
-                                <th width="30%">Veteran status</th>
+                                <th width="30%" id="veteran">Veteran status</th>
                                 <td width="2%">:</td>
                                 <td>
                                   <select class='val' disabled>
@@ -187,5 +187,6 @@
 </section>
 
     <script src="./scripts/profile.js"></script>
+	<script src="./scripts/connect_profile.js"></script>
 	</body>
 </html>

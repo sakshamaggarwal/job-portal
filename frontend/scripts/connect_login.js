@@ -6,7 +6,7 @@ function myfunction(){
     .then((response) => {
             var result = response.data;
             if (result=='True'){
-                 window.location.href="profile/"+ element+".html";
+                 window.location.href="profile.html";
             }
             else{
                 window.location.href="form.html";
