@@ -15,9 +15,6 @@ function postProfile(){
 	var element_wa = document.getElementById("work_auth").value;
 	var element_race = document.getElementById("race_dropdown_container").value;
 	
-	uci_netid, first_name, last_name, major, year, gender, sex, disability,
-                     veteran, work_ex, skills, work_auth, grad_date, ethinicity,
-                     email, pass_bool
     let payload = { uci_netid : element_id, first_name : element_fname, last_name: element_lname, major: element_major, year : element_year, gender : element_g, sex : element_g, disability : element_d,
                      veteran : element_v, work_ex : element_we, skills : element_skills, work_auth : element_wa, grad_date : element_year, ethinicity : element_race};
 	let res = await axios.post('http://127.0.0.1:5000/profile/', payload);
