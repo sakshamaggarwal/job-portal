@@ -1,6 +1,5 @@
 from collections import defaultdict
 import json
-import pymongo
 from pymongo import MongoClient
 from urllib.parse import quote
 
@@ -145,7 +144,6 @@ class Db:
             uci_netid = user['uci_netid']
             job_list_dict = {}
             jobs_applied_by_user = app_res[uci_netid]
-            job_list_user_dict = []
             if len(jobs_applied_by_user) > 0:
                 for job in jobs_applied_by_user:
                     job_list_dict['status'] = job['status']
