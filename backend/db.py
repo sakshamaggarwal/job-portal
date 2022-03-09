@@ -145,6 +145,7 @@ class Db:
             uci_netid = user['uci_netid']
             job_list_dict = {}
             jobs_applied_by_user = app_res[uci_netid]
+            job_list_user_dict = []
             if len(jobs_applied_by_user) > 0:
                 for job in jobs_applied_by_user:
                     job_list_dict['status'] = job['status']
@@ -159,7 +160,7 @@ class Db:
                     job_list_dict['gender'] = user['gender']
                     job_list_dict['sponsorship'] = user['work_sponsorship']
                     job_list_dict['work_experience'] = user['work_experience']
-                job_listing.append(job_list_dict)
+                    job_listing.append(job_list_dict.copy())
 
         json_data = json.dumps(job_listing)
         return json_data
