@@ -34,6 +34,19 @@ def get_profile(id):
     return service.get_profile_info(id)
 
 
+@app.route('/save/<id>')
+def user_exists(id):
+    global service
+    return service.check_user_exists(id)
+
+
+# @app.route('/save',(req,res)=>{
+#     console.log('Body',req.body);
+#     res.json({
+#         msg: 'Recieved the data'
+#     });
+# });
+
 @app.route('/userExists/<id>')
 def user_exists(id):
     global service
