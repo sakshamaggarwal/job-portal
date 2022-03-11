@@ -1,39 +1,35 @@
 function myfunction(){
 
     var element = document.getElementById("txtuser").value;
+    if (element!=null){
     var base ='http://127.0.0.1:5000/userExists/'
     axios.get(base+element)
     .then((response) => {
             var result = response.data;
             if (result=='True'){
+                 createCookie('uci_netid',element);
                  window.location.href="profile.html";
+                 console.log(readCookie('uci_netid'))
             }
             else{
                 window.location.href="form.html";
+                console.log(readCookie('uci_netid'))
             }
 
 
 });
 }
+else{
+ window.location.href="login.html";
+}
+}
 
-function checkCookie()
-        {
-          var element = document.getElementById("txtuser").value;
-          if( element === "" ) {
-            window.location.href="login.html";
-          }
-          else
-          {
-            createCookie("uci_netid", element);
-          }
-       }
 
 function createCookie(cookieName,cookieValue)
         {
           document.cookie = cookieName + "=" + cookieValue + ";"
-           myfunction();
-          /*console.log(document.cookie);
-          console.log(readCookie('uci_netid'))*/
+
+          console.log(readCookie('uci_netid'))
         }
 
 function readCookie(name) {
