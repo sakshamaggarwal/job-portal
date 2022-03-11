@@ -19,11 +19,10 @@ class Service:
     def get_all_profiles(self):
         return self.db.get_profiles_info()
 
-    def save_and_update_application(self, uci_netid, company, status, job_type, link, position, location, job_id, date_applied,
-                        deadline):
-        self.db.save_and_update_application(uci_netid, company, status, job_type, link, position, location, job_id, date_applied,
-                                            deadline)
-
+    def save_and_update_application(self, uci_netid, company, status, job_type, link, position, location, job_id,
+                                    date_applied, deadline):
+        self.db.save_and_update_application(uci_netid, company, status, job_type, link, position, location, job_id,
+                                            date_applied, deadline)
 
     def job_listing(self):
         return self.db.job_listing()

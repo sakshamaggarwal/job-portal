@@ -1,6 +1,5 @@
 from collections import defaultdict
 import json
-import pymongo
 from pymongo import MongoClient
 from urllib.parse import quote
 
@@ -159,7 +158,7 @@ class Db:
                     job_list_dict['gender'] = user['gender']
                     job_list_dict['sponsorship'] = user['work_sponsorship']
                     job_list_dict['work_experience'] = user['work_experience']
-                job_listing.append(job_list_dict)
+                    job_listing.append(job_list_dict.copy())
 
         json_data = json.dumps(job_listing)
         return json_data
