@@ -1,7 +1,5 @@
 // Get unique values for the desired columns
 
-// {2 : ["M", "F"], 3 : ["RnD", "Engineering", "Design"], 4 : [], 5 : []}
-
 function getUniqueValuesFromColumn() {
   //console.log("called");
     var unique_col_values_dict = {}
@@ -11,10 +9,9 @@ function getUniqueValuesFromColumn() {
         col_index = filter_i.parentElement.getAttribute("col-index");
         //alert(col_index)
         const rows = document.querySelectorAll("#emp-table > tbody > tr")
-        //const rows=tbody.querySelectorAll(":scope > tr");
-        //console.log(rows.length);
+
         rows.forEach((row) => {
-          //console.log(row.innerHTML);
+
             cell_value = row.querySelector("td:nth-child("+col_index+")").innerHTML;
             //console.log(cell_value);
             // if the col index is already present in the dict
@@ -26,11 +23,8 @@ function getUniqueValuesFromColumn() {
 
                 } else {
                     unique_col_values_dict[col_index].push(cell_value)
-                    // alert("Array after adding the cell value : " + unique_col_values_dict[col_index])
 
                 }
-
-
             } else {
                 unique_col_values_dict[col_index] = new Array(cell_value)
             }
@@ -38,10 +32,6 @@ function getUniqueValuesFromColumn() {
 
 
     });
-
-    for(i in unique_col_values_dict) {
-        //alert("Column index : " + i + " has Unique values : \n" + unique_col_values_dict[i]);
-    }
 
     updateSelectOptions(unique_col_values_dict)
 
@@ -58,14 +48,10 @@ function updateSelectOptions(unique_col_values_dict) {
         unique_col_values_dict[col_index].forEach((i) => {
             filter_i.innerHTML = filter_i.innerHTML + `\n<option value="${i}">${i}</option>`
         });
-
     });
 };
 
-
 // Create filter_rows() function
-
-// filter_value_dict {2 : Value selected, 4:value, 5: value}
 
 function filter_rows() {
     allFilters = document.querySelectorAll(".table-filter")
@@ -112,7 +98,6 @@ function filter_rows() {
 
 function reset()
 {
-  console.log("called");
   allFilters = document.querySelectorAll(".table-filter")
   allFilters.forEach((filter_i) => {
       //console.log(filter_i);
@@ -125,16 +110,15 @@ function reset()
 
 function fetch()
 {
-  console.log("called");
   $.get( "http://localhost:5000/getJobListing", function( data, status ) {
     result=JSON.parse(data);
-    //console.log(result.length);
+    //console.log(result);
     for(var i=0;i<result.length;i++)
     {
       row=document.createElement("tr");
       for(var key in result[i])
       {
-        console.log(key+" "+result[i][key])
+        //console.log(key+" "+result[i][key])
         cell=document.createElement("td");
         cell.innerHTML=result[i][key];
         row.appendChild(cell);
