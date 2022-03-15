@@ -39,7 +39,7 @@
                           </div>
                           <div class="card-body" >
                             <p class="mb-0" id='uci_netid'><strong class="pr-1">Student ID:</strong>321000001</p>
-                            <p class="mb-0"><strong class="pr-1">Email:</strong>anks1@uci.edu</p>
+
                           </div>
                         </div>
                       </div>
@@ -49,23 +49,24 @@
                             <h3 class="mb-0">General Information</h3>
                           </div>
                           <div class="card-body pt-0">
+                            <form id="user_details" onsubmit="formAction()">
                             <table class="table table-bordered">
 
                               <tr>
                                 <th width="30%" id='first_name'>First Name</th>
                                 <td width="2%">:</td>
-                                <td ><input type="text" class='val' value="Ankita" readonly ></td>
+                                <td ><input type="text" class='val' value="Ankita" required readonly></td>
                               </tr>
                               <tr>
                                 <th width="30%" id='last_name'>Last Name</th>
                                 <td width="2%">:</td>
-                                <td><input type="text" class='val' value="Sinha" readonly ></td>
+                                <td><input type="text" class='val' value="Sinha" readonly required></td>
                               </tr>
                               <tr>
                                 <th width="30%" id='major'>Major</th>
                                 <td width="2%">:</td>
                                 <td  >
-                                  <select class='val' disabled>
+                                  <select class='val' disabled required>
                                     <option value="Computer Science">Computer Science</option>
                                     <option value="Data Science">Data Science</option>
                                   </select>
@@ -75,7 +76,7 @@
                                 <th width="30%" id='year'>Current Year</th>
                                 <td width="2%">:</td>
                                 <td  >
-                                  <select class='val' disabled>
+                                  <select class='val' disabled required>
                                     <option value="Graduate">Graduate</option>
                                     <option value="Senior">Senior</option>
                                     <option value="Junior">Junior</option>
@@ -86,23 +87,23 @@
                                 <th width="30%" >Expected graduation</th>
                                 <td width="2%">:</td>
                                 <td>
-                                  <select class='val' disabled>
+                                  <select class='val' disabled required>
                                     <option value="Fall 22">Fall 22</option>
                                     <option value="Winter 23">Winter 23</option>
                                   </select>
                                 </td>
                               </tr>
                               <tr>
-                                <th width="30%" id='work'>Work Experience(years)</th>
+                                <th width="30%" id='work' required>Work Experience(years)</th>
                                 <td width="2%">:</td>
-                                <td ><input type="number" min="0" class='val' readonly></td>
+                                <td ><input type="number" min="0" class='val' value=1 readonly required></td>
                               </tr>
                               <tr>
                                 <th width="30%" id='skills'>Skills</th>
                                 <td width="2%">:</td>
                                 <td >
-                                  <select class='val' multiple disabled>
-                                    <option value="HTML">HTML</option>
+                                  <select class='val' multiple disabled required>
+                                    <option value="HTML" selected>HTML</option>
                                     <option value="CSS">CSS</option>
                                     <option value="JavaScript">JavaScript</option>
                                   </select></td>
@@ -111,7 +112,7 @@
                                 <th width="30%" id="work_auth">Work sponsorship required?</th>
                                 <td width="2%">:</td>
                                 <td>
-                                  <select class='val' disabled>
+                                  <select class='val' disabled required>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                   </select>
@@ -121,7 +122,7 @@
                                 <th width="30%" id="gender">Gender</th>
                                 <td width="2%">:</td>
                                 <td  >
-                                  <select class='val' disabled>
+                                  <select class='val' disabled required>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                     <option value="Other">Other</option>
@@ -130,7 +131,7 @@
                                 </td>
                               </tr>
                               <tr>
-                                <th width="30%" id="race_dropdown_container">Ethnicity</th>
+                                <th width="30%" id="race_dropdown_container" required>Ethnicity</th>
                                 <td width="2%">:</td>
                                 <td>
                                   <select class='val' disabled>
@@ -145,7 +146,7 @@
                                 <th width="30%" id="disability">Disability status</th>
                                 <td width="2%">:</td>
                                 <td>
-                                  <select class='val' disabled>
+                                  <select class='val' disabled required>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                     <option value="Decline to self-identify" disabled>Decline to self-identify</option>
@@ -153,7 +154,7 @@
                                 </td>
                               </tr>
                               <tr>
-                                <th width="30%" id="veteran">Veteran status</th>
+                                <th width="30%" id="veteran" required>Veteran status</th>
                                 <td width="2%">:</td>
                                 <td>
                                   <select class='val' disabled>
@@ -165,11 +166,13 @@
                               </tr>
 
                             </table>
+                            <div>
+                              <button id="editbtn">Edit</button>
+                              <button type="button" id="cancelbtn" onclick="cancel()" style="visibility:hidden">Cancel</button>
+                            </div>
+                          </form>
                           </div>
-                          <div>
-                            <button id="editbtn" type="button" onclick="edit()">Edit</button>
-                            <button id="cancelbtn" type="button" onclick="cancel()" style="visibility:hidden">Cancel</button>
-                          </div>
+
                         </div>
 <br>
 <a href="job listing.html" > View Job Listing</a>
@@ -183,16 +186,12 @@
                   </div>
 
                 </div>
-<!-- partial -->
-
     		  </div>
 		    </div>
     </div>
 </section>
 
-
-
     <script src="./scripts/profile.js"></script>
-	<script src="./scripts/connect_profile.js"></script>
+	<!--<script src="./scripts/connect_profile.js"></script>-->
 	</body>
 </html>
