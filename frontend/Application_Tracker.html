@@ -48,7 +48,7 @@
         </table>
         <button class="btn btn-info" id="add"><span class="glyphicon glyphicon-plus-sign"></span>Add New Record</button>
         <br>
-        <button class="btn btn-info" id="sub_but"><span class="glyphicon glyphicon-plus-sign"></span>Submit</button>
+        <button class="btn btn-info" id="sub_but"><span class="submit_c"></span>Submit</button>
 
 
     </div>
@@ -58,7 +58,7 @@
 <script src="./scripts/bootstable.js"></script>
 
 <script>
-
+   /*Table Editor*/
    $("#table-list").SetEditable({
         columnsEd: "0,1,2,3,4,5,6,7,8",
         columnsType: "text,select,select,text,text,text,text,date,date",
@@ -67,7 +67,7 @@
     });
 
 
-
+/*Function to send data to database*/
 $('#sub_but').click(function() {
     var myRows = [];
 
@@ -87,7 +87,7 @@ $('#sub_but').click(function() {
         myRows.push(obj);
     });
 
-
+    /*get the current cookie*/
     uci_net=readCookie('uci_netid');
     for(i=0;i<myRows.length;i++){
         const res=myRows[i];
@@ -95,8 +95,8 @@ $('#sub_but').click(function() {
         for (const x in  res) {
           text.push(res[x]);
         }
-        console.log(text);
-        console.log(text[0]);
+        /*console.log(text);
+        console.log(text[0]);*/
 
         data={
         "uci_netid": uci_net,
@@ -133,6 +133,7 @@ $('#sub_but').click(function() {
 </script>
 
 <script type="text/javascript">
+/*Function to display data from database*/
 $(document).ready(function(){
     user=readCookie('uci_netid');
     console.log(user);
@@ -172,29 +173,26 @@ $(document).ready(function(){
 });
 </script>
 <script>
+
+
+/*function to sort the table by column */
   function sortTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById("table-list");
   switching = true;
-  //Set the sorting direction to ascending:
   dir = "asc";
-  /*Make a loop that will continue until
-  no switching has been done:*/
   while (switching) {
     //start by saying: no switching is done:
     switching = false;
     rows = table.rows;
-    /*Loop through all table rows (except the
-    first, which contains table headers):*/
+
     for (i = 1; i < (rows.length - 1); i++) {
       //start by saying there should be no switching:
       shouldSwitch = false;
-      /*Get the two elements you want to compare,
-      one from current row and one from the next:*/
+
       x = rows[i].getElementsByTagName("TD")[n];
       y = rows[i + 1].getElementsByTagName("TD")[n];
-      /*check if the two rows should switch place,
-      based on the direction, asc or desc:*/
+
       if (dir == "asc") {
         if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
           //if so, mark as a switch and break the loop:
@@ -210,15 +208,13 @@ $(document).ready(function(){
       }
     }
     if (shouldSwitch) {
-      /*If a switch has been marked, make the switch
-      and mark that a switch has been done:*/
+
       rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
       switching = true;
       //Each time a switch is done, increase this count by 1:
       switchcount ++;
     } else {
-      /*If no switching has been done AND the direction is "asc",
-      set the direction to "desc" and run the while loop again.*/
+
       if (switchcount == 0 && dir == "asc") {
         dir = "desc";
         switching = true;
