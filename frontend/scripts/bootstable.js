@@ -26,21 +26,7 @@ var newColHtml = '<div class="btn-group pull-right">'+
 '<span class="glyphicon glyphicon-remove" > </span>'+
 '</button>'+
   '</div>';
-  //Case NOT Bootstrap
-  var newColHtml2 = '<div class="btn-group pull-right">'+
-  '<button id="bEdit" type="button" class="btn btn-sm btn-default" onclick="butRowEdit(this);">' +
-  '<span class="glyphicon glyphicon-pencil" > ✎ </span>'+
-  '</button>'+
-  '<button id="bElim" type="button" class="btn btn-sm btn-default" onclick="butRowDelete(this);">' +
-  '<span class="glyphicon glyphicon-trash" > X </span>'+
-  '</button>'+
-  '<button id="bAcep" type="button" class="btn btn-sm btn-default" style="display:none;" onclick="butRowAcep(this);">' +
-  '<span class="glyphicon glyphicon-ok" > ✓ </span>'+
-  '</button>'+
-  '<button id="bCanc" type="button" class="btn btn-sm btn-default" style="display:none;" onclick="butRowCancel(this);">' +
-  '<span class="glyphicon glyphicon-remove" > → </span>'+
-  '</button>'+
-    '</div>';
+
 var colEdicHtml = '<td name="buttons">'+newColHtml+'</td>';
 $.fn.SetEditable = function (options) {
     var defaults = {
@@ -76,14 +62,14 @@ $.fn.SetEditable = function (options) {
     }
     //Process "columnsEd" parameter
     if (params.columnsEd != null) {
-        //Extract felds
+
         colsEdi = params.columnsEd.split(',');
         console.log(colsEdi);
     }
 
-    //Process "columnsEd" parameter
+    //Process "columnsType" parameter
     if (params.columnsType != null) {
-        //Extract felds
+
         colsTyp = params.columnsType.split(',');
         console.log(colsTyp);
     }
@@ -114,9 +100,9 @@ function IterarCamposEdit($cols, action) {
 
     function IsEditable(idx) {
         //Indicates if the passed column is set to be editable
-        if (colsEdi == null) {  //no se definió
-            return true;  //todas son editable
-        } else {  //hay filtro de campos
+        if (colsEdi == null) {
+            return true;
+        } else {
             for (var i = 0; i < colsEdi.length; i++) {
                 if (idx == colsEdi[i]) {
                 elem=colsEdi[i];
@@ -124,7 +110,7 @@ function IterarCamposEdit($cols, action) {
                 }
             }
 
-            return false;  //no se encontró
+            return false;
         }
     }
 }
@@ -143,8 +129,8 @@ function SetButtonsNormal(but) {
     $(but).parent().find('#bCanc').hide();
     $(but).parent().find('#bEdit').show();
     $(but).parent().find('#bElim').show();
-    var $row = $(but).parents('tr');  //accede a la fila
-    $row.attr('id', '');  //quita marca
+    var $row = $(but).parents('tr');
+    $row.attr('id', '');
 }
 
 function SetButtonsEdit(but) {
@@ -152,19 +138,19 @@ function SetButtonsEdit(but) {
     $(but).parent().find('#bCanc').show();
     $(but).parent().find('#bEdit').hide();
     $(but).parent().find('#bElim').hide();
-    var $row = $(but).parents('tr');  //accede a la fila
-    $row.attr('id', 'editing');  //indica que está en edición
+    var $row = $(but).parents('tr');
+    $row.attr('id', 'editing');
 }
 
 //Events functions
 function butRowAcep(but) {
-//Acepta los cambios de la edición
-    var $row = $(but).parents('tr');  //accede a la fila
-    var $cols = $row.find('td');  //lee campos
-    if (!ModoEdicion($row)) return;  //Ya está en edición
-    //Está en edición. Hay que finalizar la edición
-    IterarCamposEdit($cols, function ($td) {  //itera por la columnas
-        var ele = $td.find('input,select'); //lee contenido del input
+
+    var $row = $(but).parents('tr');
+    var $cols = $row.find('td');
+    if (!ModoEdicion($row)) return;
+
+    IterarCamposEdit($cols, function ($td) {
+        var ele = $td.find('input,select');
         var cont = ele.val();
 
 
@@ -193,35 +179,34 @@ function butRowAcep(but) {
         }
 
 
-        $td.html(cont);  //fija contenido y elimina controles
+        $td.html(cont);
     });
     SetButtonsNormal(but);
     params.onEdit($row);
 }
 
 function butRowCancel(but) {
-//Rechaza los cambios de la edición
-    var $row = $(but).parents('tr');  //accede a la fila
-    var $cols = $row.find('td');  //lee campos
-    if (!ModoEdicion($row)) return;  //Ya está en edición
-    //Está en edición. Hay que finalizar la edición
-    IterarCamposEdit($cols, function ($td) {  //itera por la columnas
-        var cont = $td.find('div').html(); //lee contenido del div
-        $td.html(cont);  //fija contenido y elimina controles
+
+    var $row = $(but).parents('tr');
+    var $cols = $row.find('td');
+    if (!ModoEdicion($row)) return;
+
+    IterarCamposEdit($cols, function ($td) {
+        var cont = $td.find('div').html();
+        $td.html(cont);
     });
     SetButtonsNormal(but);
 }
 
 function butRowEdit(but) {
-    //Start the edition mode for a row.
-    var $row = $(but).parents('tr');  //accede a la fila
-    var $cols = $row.find('td');  //lee campos
-    if (ModoEdicion($row)) return;  //Ya está en edición
-    //Pone en modo de edición
-    var focused = false;  //flag
-    IterarCamposEdit($cols, function ($td) {  //itera por la columnas
 
-        var cont = $td.html(); //lee contenido
+    var $row = $(but).parents('tr');
+    var $cols = $row.find('td');
+    if (ModoEdicion($row)) return;
+
+    var focused = false;
+    IterarCamposEdit($cols, function ($td) {
+        var cont = $td.html();
         //Save previous content in a hide <div>
         var div = '<div style="display: none;">' + cont + '</div>';
 
@@ -292,8 +277,8 @@ function butRowEdit(but) {
     SetButtonsEdit(but);
 }
 
-function butRowDelete(but) {  //Elimina la fila actual
-    var $row = $(but).parents('tr');  //accede a la fila
+function butRowDelete(but) {
+    var $row = $(but).parents('tr');
     params.onBeforeDelete($row);
     $row.remove();
     params.onDelete();
@@ -330,20 +315,7 @@ function rowAddNew(tabId, initValues = []) {
         i++;
     });
     $tab_en_edic.find('tbody').append('<tr>' + htmlDat + '</tr>');
-    /*} else {
-        //Hay otras filas, podemos clonar la última fila, para copiar los botones
-        var $lastRow = $tab_en_edic.find('tr:last');
-        $lastRow.clone().appendTo($lastRow.parent());
-        $lastRow = $tab_en_edic.find('tr:last');
-        var $cols = $lastRow.find('td');  //lee campos
-        $cols.each(function() {
-            if ($(this).attr('name')=='buttons') {
-                //Es columna de botones
-            } else {
-                $(this).html('');  //limpia contenido
-            }
-        });
-    }*/
+
     params.onAdd();
 }
 
