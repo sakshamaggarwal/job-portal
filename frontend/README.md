@@ -1,7 +1,13 @@
-# job-portal
+The website requires a server to host the front end html files. This is required for the cookie implementation to work. A simple way to run a localhost server is using node.js. Below are the steps to start one. The node server can be replaced with a framework like react or angular.
 
-To run the backend flask APIs, 
-1. Install requrements.txt -> $ pip install -r requirements.txt
-2. Go to backend folder -> $ cd backend
-3. then run the main function in app.py or run it via terminal as
-    python3 app.py
+Step 1. Download Node.js
+Step 2. Run the installer.
+Step 3. Complete the setup wizard.
+Step 4. Verify installation.
+Visit the below link for a detailed explanation.
+https://www.how2shout.com/how-to/download-install-npm-node-js-packages-windows-10-8-7.html
+
+Step 5. Install http-server using npm.
+Step 6. Run the http server
+Visit the below link for a detailed explanation.
+https://www.how2shout.com/how-to/how-to-install-and-use-node-js-http-server-web-server-via-npm.html

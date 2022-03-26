@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+<style>
+input[type=text], select {
+  width: 20%;
+  padding: 4px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 1px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 20%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 5px 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 1px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 1px;
+  background-color: #ADD8E6;
+  padding: 5px;
+}
+</style>
+<body>
+
+<body style="background-color: #f2f2f2;">
+
+    <div id='application' class="" >
+        <div id='main_fields' >
+            <h2 class='heading'>User Details</h2>
+
+          <div class='clear'></div>
+
+            <form method="post" action="/post-form" onsubmit="this.form_submit" >
+
+<div class='field' >
+  <label for='uci_id'>UCI NET ID<span class='asterisk' aria-hidden='true' >*</span></label>
+  <br><input type='text' id='uci_id' name='job_application[uci_id]' aria-required="true" maxlength="255" autocomplete="uci_id" required/>
+</div>
+<div class='field'>
+  <label for='first_name'>First Name <span class='asterisk' aria-hidden='true'>*</span></label>
+  <br><input type='text' id='first_name' name='job_application[first_name]' aria-required="true" maxlength="255" autocomplete="given-name" required/>
+</div>
+<div class='field'>
+  <label for='last_name'>Last Name <span class='asterisk' aria-hidden='true'>*</span></label>
+  <br><input type='text' id='last_name' name='job_application[last_name]' aria-required="true" maxlength="255" autocomplete="family-name" required/>
+</div>
+<div class='field'>
+  <label for='major'>Major <span class='asterisk' aria-hidden='true'>*</span></label>
+  <br><select name="job_application[gender]" id="major" required><option value="">Please select</option><option value="Computer Science">Computer Science</option>
+</select>
+</div>
+<div class='field'>
+  <label for='cyear'>Current Year <span class='asterisk' aria-hidden='true' >*</span></label>
+  <br><select name="job_application[gender]" id="cyear" required><option value="" >Please select</option><option value="Graduate">Graduate</option>
+<option value="Senior">Senior</option>
+<option value="Junior">Junior</option></select>
+
+</div>
+                <div class='field'>
+  <label for='year'>Expected Graduation Year <span class='asterisk' aria-hidden='true'>*</span></label>
+	 <br><select name="job_application[gender]" id="year" required><option value="">Please select</option><option value="2022">2022</option>
+</select>
+</div>
+                <div class='field'>
+  <label for='Work'>Work Experience<span class='asterisk' aria-hidden='true'>*</span></label>
+
+	<br><input type='text' id='work' name='job_application[work]' aria-required="true" maxlength="255" autocomplete="Work" required/>
+
+</div>
+<div id='skills1'>
+            <label>Skills<span class="asterisk" aria-hidden="true" >&nbsp;*</span>
+    <br/>
+
+    <input type="hidden" name="job_application[answers_attributes][0][question_id]" id="job_application_answers_attributes_0_question_id" value="13779957002" required/>
+<input type="hidden" name="job_application[answers_attributes][0][priority]" id="job_application_answers_attributes_0_priority" value="0" />
+            </label>
+
+<textarea name="job_application[answers_attributes][0][text_value]" id="skills" aria-required="true" autocomplete="custom-question-what-is-your-primary-coding-language">
+</textarea>
+</div>
+                <div class="field" id="work_sponsorship1" >
+  <label for="work_sponsorship">Work Sponsorship</label>
+  <br><select name="work_auth" id="work_sponsorship" required><option value="">Please select</option><option value="Yes" >Yes</option>
+<option value="No">No</option>
+</select>
+</div>
+
+<div class="field" id="gender1" >
+  <label for="gender" >Gender</label>
+  <br><select name="job_application[gender]" id="gender" required><option value="">Please select</option><option value="Male">Male</option>
+<option value="Female">Female</option>
+<option value="N/A">Decline To Self Identify</option></select>
+</div>
+                <div class="field" id="race_dropdown_container1"  >
+  <label for="race_dropdown_container" >Please identify your race</label>
+  <br><select name="job_application[race]" id="race_dropdown_container" required><option value="" >Please select</option><option value="American">American Indian or Alaskan Native</option>
+<option value="Asian">Asian</option>
+<option value="AA">Black or African American</option>
+<option value="Latino">Hispanic or Latino</option>
+<option value="White">White</option>
+<option value="NH">Native Hawaiian or Other Pacific Islander</option>
+<option value="Multiple">Two or More Races</option>
+<option value="N/A">Decline To Self Identify</option></select>
+</div>
+
+<div class="field" id="veteran1" >
+  <label for="veteran">Veteran Status</label>
+  <br><select name="job_application[veteran]" id="veteran" required><option value="">Please select</option><option value="No">I am not a protected veteran</option>
+<option value="Yes">I identify as one or more of the classifications of a protected veteran</option>
+<option value="N/A">I don&#39;t wish to answer</option></select>
+</div>
+
+<div class="field" id="disability1" >
+  <label for="disability">Disability Status</label>
+  <br><select input type='text' name="job_application[disability]" id="disability" required><option value="">Please select</option><option value="Yes">Yes, I have a disability, or have a history/record of having a disability</option>
+<option value="No">No, I don&#39;t have a disability, or a history/record of having a disability</option>
+<option value="3">I don&#39;t wish to answer</option></select>
+</div>
+
+          <div id='captcha_container'></div>
+  <hr/>
+
+        <div id='error_message'></div>
+
+        <div id='submit_buttons'>
+            <input
+                    type='submit'
+            value='Submit Application'
+            id='submit_app'
+            class='button'
+          formaction= "http://localhost:63342/job-portal2/frontend/profile.html"
+            onsubmit="postProfile()">
+        </div>
+</form>    </div>
+</div>
+
+    </div>
+<br>
+
+
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="./scripts/connect_UDetails.js"></script>
+    <br>
+</form>
+  </body>
+</html>
