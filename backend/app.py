@@ -6,6 +6,7 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
+#CORS(app, resources={r"/api/*": {"origins": "*"}})
 service = Service()
 
 
@@ -23,7 +24,7 @@ def create_profile():
     name = json_data['first_name'] + " " + json_data['last_name']
     service.create_profile(uci_netid, json_data['first_name'], json_data['last_name'], json_data['major'],
                            json_data['year'], json_data['graduation_year'], json_data['gender'],
-                           json_data['race'], json_data['disability'], json_data['veteran'], json_data['work_ex'],
+                           json_data['race'], json_data['disability'], json_data['veteran'], json_data['work_experience'],
                            json_data['skills'], json_data['work_sponsorship'])
     return json.dumps({"record added for : " 'uci_netid': uci_netid, 'name': name})
 

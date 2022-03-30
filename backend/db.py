@@ -16,7 +16,7 @@ class Db:
         self.applications_collection = self.db["applicationTracker"]
 
     def save_profile(self, uci_netid, first_name, last_name, major, year, graduation_year, gender, race, disability,
-                     veteran, work_ex, skills, work_sponsorship):
+                     veteran, work_experience, skills, work_sponsorship):
         self.user_collection.update_one({"uci_netid": uci_netid},
                                         {"$setOnInsert": {
                                             "uci_netid": uci_netid,
@@ -29,7 +29,7 @@ class Db:
                                             "race": race,
                                             "disability": disability,
                                             "veteran": veteran,
-                                            "work_experience": work_ex,
+                                            "work_experience": work_experience,
                                             "skills": skills,
                                             "work_sponsorship": work_sponsorship
                                         }},

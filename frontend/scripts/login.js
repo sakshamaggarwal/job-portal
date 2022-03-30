@@ -8,14 +8,13 @@ function myfunction(){
             var result = response.data;
             if (result=='True'){
                  createCookie('uci_netid',element);
+                 alert("Welcome");
                  window.location.href="profile.html";
-                 console.log(readCookie('uci_netid'))
             }
             else{
-                window.location.href="form.html";
-                console.log(readCookie('uci_netid'))
+                alert("New user - registration required");
+                window.location.href="UDetails.html";
             }
-
 
 });
 }
@@ -42,4 +41,3 @@ function readCookie(name) {
     }
     return null;
 }
-

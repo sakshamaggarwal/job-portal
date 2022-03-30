@@ -6,9 +6,9 @@ class Service:
         self.db = Db()
 
     def create_profile(self, uci_netid, first_name, last_name, major, year, graduation_year, gender, race, disability,
-                       veteran, work_ex, skills, work_sponsorship):
+                       veteran, work_experience, skills, work_sponsorship):
         self.db.save_profile(uci_netid, first_name, last_name, major, year, graduation_year, gender, race, disability,
-                             veteran, work_ex, skills, work_sponsorship)
+                             veteran, work_experience, skills, work_sponsorship)
 
     def get_profile_info(self, id):
         return self.db.get_profile_info(id)

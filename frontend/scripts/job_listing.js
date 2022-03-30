@@ -112,20 +112,20 @@ function fetch()
 {
   $.get( "http://localhost:5000/getJobListing", function( data, status ) {
     result=JSON.parse(data);
-    //console.log(result);
+
     for(var i=0;i<result.length;i++)
     {
       row=document.createElement("tr");
       for(var key in result[i])
       {
-        //console.log(key+" "+result[i][key])
+        
         cell=document.createElement("td");
         cell.innerHTML=result[i][key];
         row.appendChild(cell);
       }
       document.getElementsByTagName("tbody")[0].appendChild(row);
     }
-    //console.log(result.length);
+
     getUniqueValuesFromColumn();
   });
 }
