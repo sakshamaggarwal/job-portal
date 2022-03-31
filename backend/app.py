@@ -22,10 +22,10 @@ def create_profile():
     print(json_data.keys())
     uci_netid = json_data['uci_netid']
     name = json_data['first_name'] + " " + json_data['last_name']
-    service.create_profile(uci_netid, json_data['first_name'], json_data['last_name'], json_data['major'],
-                           json_data['year'], json_data['graduation_year'], json_data['gender'],
-                           json_data['race'], json_data['disability'], json_data['veteran'], json_data['work_experience'],
-                           json_data['skills'], json_data['work_sponsorship'])
+    service.create_and_update_profile(uci_netid, json_data['first_name'], json_data['last_name'], json_data['major'],
+                                      json_data['year'], json_data['graduation_year'], json_data['gender'],
+                                      json_data['race'], json_data['disability'], json_data['veteran'], json_data['work_experience'],
+                                      json_data['skills'], json_data['work_sponsorship'])
     return json.dumps({"record added for : " 'uci_netid': uci_netid, 'name': name})
 
 

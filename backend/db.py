@@ -15,10 +15,10 @@ class Db:
         self.user_collection = self.db["Users"]
         self.applications_collection = self.db["applicationTracker"]
 
-    def save_profile(self, uci_netid, first_name, last_name, major, year, graduation_year, gender, race, disability,
-                     veteran, work_experience, skills, work_sponsorship):
-        self.user_collection.update_one({"uci_netid": uci_netid},
-                                        {"$setOnInsert": {
+    def save_and_update_profile(self, uci_netid, first_name, last_name, major, year, graduation_year, gender, race, disability,
+                                veteran, work_experience, skills, work_sponsorship):
+        self.user_collection.replace_one({"uci_netid": uci_netid},
+                                        {
                                             "uci_netid": uci_netid,
                                             "first_name": first_name,
                                             "last_name": last_name,
@@ -32,7 +32,7 @@ class Db:
                                             "work_experience": work_experience,
                                             "skills": skills,
                                             "work_sponsorship": work_sponsorship
-                                        }},
+                                        },
                                         upsert=True)
 
     def get_profile_info(self, uci_netid):
