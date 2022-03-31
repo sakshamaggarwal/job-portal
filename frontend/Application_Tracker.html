@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+
+<style>
+.table-content {
+  margin: auto;
+  border: #000000;
+  padding: 10px;
+}
+</style>
+<!-- Styles -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./scripts/connect_login.js"></script>
+
+</head>
+
+<body>
+    <H1><b><center>Application Tracker</center></b></H1>
+
+    <div class="table-content">
+
+        <table class="table table-borded table-responsive table-striped " id="table-list">
+            <thead class="table-dark">
+                <tr>
+                    <th onclick="sortTable(0)">Company</th>
+                    <th>Status</th>
+                    <th>Job Type</th>
+                    <th>Job Link</th>
+                    <th>Position</th>
+                    <th>Location</th>
+                    <th>Job ID</th>
+                    <th>Deadline</th>
+                    <th>Date Applied</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <button class="btn btn-info" id="add"><span class="glyphicon glyphicon-plus-sign"></span>Add New Record</button>
+        <br>
+        <button class="btn btn-info" id="sub_but"><span class="submit_c"></span>Submit</button>
+
+
+    </div>
+
+
+
+<script src="./scripts/bootstable.js"></script>
+
+<script>
+   /*Table Editor*/
+   $("#table-list").SetEditable({
+        columnsEd: "0,1,2,3,4,5,6,7,8",
+        columnsType: "text,select,select,text,text,text,text,date,date",
+        columnsSelect: [{"col": 1, "options": ["Applied","Reject","Accepted"]},{"col": 2, "options": ["Full-Time","Internship"]}],
+        $addButton: $('#add')
+    });
+
+
+/*Function to send data to database*/
+$('#sub_but').click(function() {
+    var myRows = [];
+
+    var $th = $("#table-list th");
+
+    $('#table-list tbody tr').each(function(i, tr){
+        var obj = {}, $tds = $(tr).find('td');
+        $th.each(function(index, th){
+
+            if ($(th).text()!=="") {
+
+                obj[$(th).text()] = $tds.eq(index).text();
+            }
+
+        });
+
+        myRows.push(obj);
+    });
+
+    /*get the current cookie*/
+    uci_net=readCookie('uci_netid');
+    for(i=0;i<myRows.length;i++){
+        const res=myRows[i];
+        let text = [];
+        for (const x in  res) {
+          text.push(res[x]);
+        }
+        /*console.log(text);
+        console.log(text[0]);*/
+
+        data={
+        "uci_netid": uci_net,
+        "company": text[0],
+        "status" : text[1],
+        "job_type" : text[2],
+        "link" : text[3],
+        "position" : text[4],
+        "location": text[5],
+        "job_id": text[6],
+        "date_applied":text[8],
+        "deadline":text[7]
+        }
+
+
+        $.ajax({
+          type: "POST",
+          url: "http://127.0.0.1:5000/addUpdateApplication",
+          data: JSON.stringify(data),
+          contentType: 'application/json',
+            success: function(res) {
+
+            console.log(res);
+            console.log("Added");
+        }
+        });
+
+
+}
+ alert("Records Submitted");
+    /*console.log(JSON.stringify(myRows));*/
+});
+
+</script>
+
+<script type="text/javascript">
+/*Function to display data from database*/
+$(document).ready(function(){
+    user=readCookie('uci_netid');
+    console.log(user);
+    if (user===null){
+        console.log("called");
+        window.location.href="login.html";
+    }
+    $.ajax({
+        url: "http://127.0.0.1:5000/getApplication/"+ user,
+        dataType: 'json',
+        type: 'get',
+        cache:false,
+        success: function(data){
+            /*console.log(data);*/
+            var event_data = '';
+            $.each(data, function(index, value){
+                console.log(value);
+                event_data += '<tr>';
+                event_data += '<td>'+value.company+'</td>';
+                event_data += '<td>'+value.status+'</td>';
+                event_data += '<td>'+value.job_type+'</td>';
+                event_data += '<td>'+value.link+'</td>';
+                event_data += '<td>'+value.position+'</td>';
+                event_data += '<td>'+value.location+'</td>';
+                event_data += '<td>'+value.job_id+'</td>';
+                event_data += '<td>'+value.deadline+'</td>';
+                event_data += '<td>'+value.date_applied+'</td>';
+                event_data += '</tr>';
+            });
+            $("#table-list").append(event_data);
+        },
+        error: function(d){
+            /*console.log("error");*/
+            alert("Error");
+        }
+    });
+});
+</script>
+<script>
+
+
+/*function to sort the table by column */
+  function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("table-list");
+  switching = true;
+  dir = "asc";
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;
+    } else {
+
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
+</body>
+
+</html>

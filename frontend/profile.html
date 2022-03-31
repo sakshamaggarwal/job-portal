@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Student Profile Page</title>
+
+    <link href="css/additional.css" rel="stylesheet">
+    <link rel='stylesheet' href='css/bootstrap.min.css'>
+    <link rel='stylesheet' href='css/all.min.css'>
+    <link rel="stylesheet" href="css/demo.css" />
+	  <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<header class="ScriptHeader">
+    <div class="rt-container">
+    	<div class="col-rt-12">
+        	<div class="rt-heading">
+            	<h1>Student Profile Page</h1>
+          </div>
+        </div>
+    </div>
+</header>
+
+<section>
+    <div class="rt-container">
+          <div class="col-rt-12">
+              <div class="Scriptcontent">
+
+                <!-- Student Profile -->
+                <div class="student-profile py-4">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-lg-4">
+                        <div class="card shadow-sm">
+                          <div class="card-header bg-transparent text-center">
+                            <img class="profile_img" src="https://source.unsplash.com/600x300/?student" alt="student dp">
+                            <h3 id='profile_name'></h3>
+                          </div>
+                          <div class="card-body" >
+                            <p class="mb-0" id='uci_netid'><strong id='profile_id' class="pr-1"></strong></p>
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-8">
+                        <div class="card shadow-sm">
+                          <div class="card-header bg-transparent border-0">
+                            <h3 class="mb-0">General Information</h3>
+                          </div>
+                          <div class="card-body pt-0">
+                            <form id="user_details"  onsubmit="return formAction()">
+                            <table class="table table-bordered">
+
+                              <tr>
+                                <th width="30%" >First Name</th>
+                                <td width="2%">:</td>
+                                <td ><input type="text" id='first_name' class='val'  required readonly></td>
+                              </tr>
+                              <tr>
+                                <th width="30%" >Last Name</th>
+                                <td width="2%">:</td>
+                                <td><input type="text" id='last_name' class='val'  readonly required></td>
+                              </tr>
+                              <tr>
+                                <th width="30%" >Major</th>
+                                <td width="2%">:</td>
+                                <td  >
+                                  <select class='val' id='major' disabled required>
+                                    <option value="none" selected disabled hidden>Select an Option</option>
+                                    <option value="Computer Science">Computer Science</option>
+                                    <option value="Data Science">Data Science</option>
+                                  </select>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th width="30%" >Current Year</th>
+                                <td width="2%">:</td>
+                                <td  >
+                                  <select class='val' id='year' disabled required>
+                                    <option value="none" selected disabled hidden>Select an Option</option>
+                                    <option value="Graduate">Graduate</option>
+                                    <option value="Senior">Senior</option>
+                                    <option value="Junior">Junior</option>
+                                  </select>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th width="30%" >Expected graduation</th>
+                                <td width="2%">:</td>
+                                <td>
+                                  <select class='val' id='grad_year' disabled required>
+                                    <option value="none" selected disabled hidden>Select an Option</option>
+                                    <option value="Fall 22">Fall 22</option>
+                                    <option value="Winter 23">Winter 23</option>
+                                  </select>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th width="30%" required>Work Experience(years)</th>
+                                <td width="2%">:</td>
+                                <td ><input type="number" id='work' min="0" class='val'  readonly required></td>
+                              </tr>
+                              <tr>
+                                <th width="30%" >Skills</th>
+                                <td width="2%">:</td>
+                                <td ><input type="text" id='skills' class='val'  readonly required></td>
+                              </tr>
+                              <tr>
+                                <th width="30%" >Work sponsorship required?</th>
+                                <td width="2%">:</td>
+                                <td>
+                                  <select class='val' id="work_auth" disabled required>
+                                    <option value="none" selected disabled hidden>Select an Option</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                  </select>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th width="30%" >Gender</th>
+                                <td width="2%">:</td>
+                                <td  >
+                                  <select class='val' id="gender" disabled required>
+                                    <option value="none" selected disabled hidden>Select an Option</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                    <option value="Decline to self-identify">Decline to self-identify</option>
+                                  </select>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th width="30%" required>Ethnicity</th>
+                                <td width="2%">:</td>
+                                <td>
+                                  <select class='val' id="race_dropdown_container" disabled>
+                                    <option value="none" selected disabled hidden>Select an Option</option>
+                                    <option value="Hispanic/Latino">Hispanic/Latino</option>
+                                    <option value="Asian">Asian</option>
+                                    <option value="Black">Black</option>
+                                    <option value="White">White</option>
+                                  </select>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th width="30%" >Disability status</th>
+                                <td width="2%">:</td>
+                                <td>
+                                  <select id="disability" class='val' disabled required>
+                                    <option value="none" selected disabled hidden>Select an Option</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                    <option value="Decline to self-identify" disabled>Decline to self-identify</option>
+                                  </select>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th width="30%" required>Veteran status</th>
+
+                                <td width="2%">:</td>
+                                <td>
+                                  <select class='val' id="veteran" disabled>
+                                    <option value="none" selected disabled hidden>Select an Option</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                    <option value="Decline to self-identify">Decline to self-identify</option>
+                                  </select>
+                                </td>
+                              </tr>
+
+                            </table>
+                            <div>
+                              <button id="editbtn">Edit</button>
+                              <button type="button" id="cancelbtn" onclick="cancel()" style="visibility:hidden">Cancel</button>
+                            </div>
+                          </form>
+                          </div>
+
+                        </div>
+<br>
+<a href="job listing.html" > View Job Listing</a>
+<br>
+<a href="Application_Tracker.html"> View Application Tracker</a>
+<br>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+    		  </div>
+		    </div>
+    </div>
+</section>
+    <script src="scripts/jquery.min.js"></script>
+    <script src="./scripts/profile.js"></script>
+
+	</body>
+</html>
